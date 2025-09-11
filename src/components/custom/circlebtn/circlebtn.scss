@@ -1,0 +1,73 @@
+.circle-btn {
+  width: 100%;
+  &.circle-btn--big {
+      max-width: 240px;
+    }
+    &.circle-btn--sm {
+      max-width: 154px;
+    }
+		// .circle-btn__link
+		&__link {
+      position: relative;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      padding: 15%;
+      aspect-ratio: 1;
+      transition: transform .45s ease;
+      @media (any-hover: hover){
+        &:hover{
+          transform: scale(1.05);
+        }
+      }
+      &:active {
+        transform: scale(1.05);
+      }
+      &::before {
+        content:'';
+        position: absolute;
+        @extend %bgImage;
+        background-size: contain;
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1;
+        z-index: 0;
+        animation: circle 10s linear 0s infinite normal;
+        .circle-btn--big & {
+          background-image: url("@img/elements/circle-buy.png");
+        }
+        .circle-btn--sm & {
+          background-image: url("@img/elements/circle-buy-item.png");
+        }
+      }
+		}
+		// .circle-btn__body
+		&__body {
+      position: relative;
+      z-index: 1;
+      box-shadow: inset 0 10px 25px #d9a819;
+      background: #ffd659;
+      aspect-ratio: 1;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+      img {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        max-width: 56%;
+        transform: translate(-40%,-32%) rotate(-15deg);
+        aspect-ratio: 95/162;
+      }
+		}
+}
+
+@keyframes circle {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
