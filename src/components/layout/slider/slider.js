@@ -22,87 +22,81 @@ import "./slider.scss";
 // Повний набір стилів з node_modules
 // import 'swiper/css/bundle';
 
-// Ініціалізація слайдерів
+
+
+const sliderConfigs = {
+	// 'tea-bags': {
+	// 	slidesPerView: 1,
+	// },
+};
+
+
+// клонированние слайдов для loop -------------
+function prepareSlides() {
+	const sliders = document.querySelectorAll('[data-fls-slider]');
+	if (!sliders.length) return;
+
+	sliders.forEach((slider) => {
+		const wrapper = slider.querySelector('.swiper-wrapper');
+		if (!wrapper) return;
+
+		const slides = wrapper.querySelectorAll('.swiper-slide');
+		const count = slides.length;
+
+		if (count === 3 || count === 4 || count === 5) {
+			for (let i = 0; i < count; i++) {
+				const clone = slides[i].cloneNode(true);
+				wrapper.appendChild(clone);
+			}
+		}
+	});
+}
+
+
 function initSliders() {
-	// Список слайдерів
-	// Перевіряємо, чи є слайдер на сторінці
-	if (document.querySelector('.swiper')) { // <- Вказуємо склас потрібного слайдера
-		// Створюємо слайдер
-		new Swiper('.swiper', { // <- Вказуємо склас потрібного слайдера
-			// Підключаємо модулі слайдера
-			// для конкретного випадку
+	const sliders = document.querySelectorAll('[data-fls-slider]');
+	if (!sliders.length) return;
+	
+	sliders.forEach((slider) => {
+		const customConfig = sliderConfigs[slider.dataset.slider] || {};
+
+		const swiper = new Swiper(slider, {
 			modules: [Navigation],
 			observer: true,
 			observeParents: true,
+			speed: 500,
 			slidesPerView: 1,
-			spaceBetween: 0,
-			//autoHeight: true,
-			speed: 800,
-
-			//touchRatio: 0,
-			//simulateTouch: false,
-			//loop: true,
-			//preloadImages: false,
-			//lazy: true,
-
-			/*
-			// Ефекти
-			effect: 'fade',
-			autoplay: {
-				delay: 3000,
-				disableOnInteraction: false,
-			},
-			*/
-
-			// Пагінація
-			/*
-			pagination: {
-				el: '.swiper-pagination',
-				clickable: true,
-			},
-			*/
-
-			// Скроллбар
-			/*
-			scrollbar: {
-				el: '.swiper-scrollbar',
-				draggable: true,
-			},
-			*/
-
-			// Кнопки "вліво/вправо"
-			navigation: {
-				prevEl: '.swiper-button-prev',
-				nextEl: '.swiper-button-next',
-			},
-			/*
-			// Брейкпоінти
+			spaceBetween: 10,
+			loop: true,
 			breakpoints: {
-				640: {
-					slidesPerView: 1,
-					spaceBetween: 0,
-					autoHeight: true,
-				},
-				768: {
-					slidesPerView: 2,
-					spaceBetween: 20,
-				},
-				992: {
-					slidesPerView: 3,
-					spaceBetween: 20,
-				},
-				1268: {
-					slidesPerView: 4,
-					spaceBetween: 30,
-				},
+			768: { 
+				slidesPerView: 2.5, 
+				spaceBetween: 20, 
+				initialSlide: 1, 
+				centeredSlides: true,
+				centeredSlidesBounds: true,
 			},
-			*/
-			// Події
-			on: {
-
-			}
+			1024: { 
+				slidesPerView: 3, 
+				spaceBetween: 30, 
+				initialSlide: 1, 
+				centeredSlides: true,
+				centeredSlidesBounds: true,
+			},
+		},
+			navigation: {
+				prevEl: slider.querySelector('.swiper-button-prev'),
+				nextEl: slider.querySelector('.swiper-button-next'),
+			},
+			...customConfig,
+			
 		});
-	}
+	});
 }
-document.querySelector('[data-fls-slider]') ?
-	window.addEventListener("load", initSliders) : null
+
+if (document.querySelector('[data-fls-slider]')) {
+	window.addEventListener('load', () => {
+		prepareSlides(); // клоны до инициализации
+		initSliders();   // запуск свайпера
+	});
+}

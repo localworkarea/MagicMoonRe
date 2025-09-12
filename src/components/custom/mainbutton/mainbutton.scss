@@ -1,0 +1,80 @@
+.btn {
+  display: grid;
+  place-items: center;
+
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+  color: var(--white);
+
+  padding: 16px 30px;
+  border-radius: 60px;
+  border: 1px solid transparent;
+  transition: border-color .3s ease, background-color .3s ease;
+  
+  @media (any-hover: hover) {
+    &:hover {
+      border-color: var(--white);
+    }
+  }
+
+  &.btn--clr-a {
+    background-color: var(--navy);
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: var(--navy-hover);
+      }
+    }
+  }
+
+  &.btn--clr-b {
+    background-color: var(--amber);
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: var(--amber-hover);
+      }
+    }
+  }
+
+  &.btn--clr-c {
+    background-color: var(--royal-blue);
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: var(--royal-blue-hover);
+      }
+    }
+  }
+
+  &.btn--clr-d {
+    background-color: var(--pine);
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: var(--pine-hover);
+      }
+    }
+  }
+
+  &.btn--clr-e {
+    background-color: var(--tangerine);
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: var(--tangerine-hover);
+      }
+    }
+  }
+
+  &.btn--clr-f {
+    background-color: var(--crimson);
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: var(--crimson-hover);
+      }
+    }
+  }
+}

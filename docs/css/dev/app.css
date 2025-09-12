@@ -91,6 +91,18 @@ summary {
   --blue: #328ad3;
   --orange: #f3ba69;
   --pink: #f69dbc;
+  --navy: #32657e;
+  --navy-hover: #264963;
+  --amber: #b87416;
+  --amber-hover: #915b12;
+  --royal-blue: #306abf;
+  --royal-blue-hover: #24508f;
+  --pine: #02583f;
+  --pine-hover: #01392a;
+  --tangerine: #f14908;
+  --tangerine-hover: #b63606;
+  --crimson: #e13e2d;
+  --crimson-hover: #aa2e21;
 }
 
 body {
@@ -169,9 +181,6 @@ body {
 }
 
 .page--home .bg-main::before {
-  background-color: var(--violet-dark);
-}
-.--fullpage-section-0 .page--home .bg-main::before {
   background-color: var(--violet-dark);
 }
 .--fullpage-section-1 .page--home .bg-main::before {

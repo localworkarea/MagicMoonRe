@@ -175,7 +175,7 @@ body {
 		&::before {
 			background-color: var(--violet-dark);
 			.--fullpage-section-0 & {
-				background-color: var(--violet-dark);
+				// background-color: var(--violet-dark);
 			}
 			.--fullpage-section-1 & {
 				background-color: var(--violet-light);
