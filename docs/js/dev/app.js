@@ -88,40 +88,21 @@ class Popup {
       init: true,
       //Для кнопок
       attributeOpenButton: "data-fls-popup-link",
-      // Атрибут для кнопки, яка викликає попап
       attributeCloseButton: "data-fls-popup-close",
-      // Атрибут для кнопки, що закриває попап
-      // Для сторонніх об'єктів
       fixElementSelector: "[data-fls-lp]",
-      // Атрибут для елементів із лівим паддингом (які fixed)
-      // Для об'єкту попапа
       attributeMain: "data-fls-popup",
-      youtubeAttribute: "data-fls-popup-youtube",
-      // Атрибут для коду youtube
-      youtubePlaceAttribute: "data-fls-popup-youtube-place",
-      // Атрибут для вставки ролика youtube
-      setAutoplayYoutube: true,
-      // Зміна класів
       classes: {
         popup: "popup",
-        // popupWrapper: 'popup__wrapper',
         popupContent: "data-fls-popup-body",
         popupActive: "data-fls-popup-active",
-        // Додається для попапа, коли він відкривається
         bodyActive: "data-fls-popup-open"
-        // Додається для боді, коли попап відкритий
       },
-      focusCatch: true,
-      // Фокус усередині попапа зациклений
+      focusCatch: false,
       closeEsc: true,
-      // Закриття ESC
       bodyLock: true,
-      // Блокування скролла
       hashSettings: {
-        location: true,
-        // Хеш в адресному рядку
-        goHash: true
-        // Перехід по наявності в адресному рядку
+        location: false,
+        goHash: false
       },
       on: {
         // Події
@@ -135,7 +116,6 @@ class Popup {
         }
       }
     };
-    this.youTubeCode;
     this.isOpen = false;
     this.targetOpen = {
       selector: false,
@@ -198,7 +178,6 @@ class Popup {
       if (buttonOpen) {
         e.preventDefault();
         this._dataValue = buttonOpen.getAttribute(this.options.attributeOpenButton) ? buttonOpen.getAttribute(this.options.attributeOpenButton) : "error";
-        this.youTubeCode = buttonOpen.getAttribute(this.options.youtubeAttribute) ? buttonOpen.getAttribute(this.options.youtubeAttribute) : null;
         if (this._dataValue !== "error") {
           if (!this.isOpen) this.lastFocusEl = buttonOpen;
           this.targetOpen.selector = `${this._dataValue}`;
@@ -254,19 +233,6 @@ class Popup {
       if (!this._reopen) this.previousActiveElement = document.activeElement;
       this.targetOpen.element = document.querySelector(`[${this.options.attributeMain}=${this.targetOpen.selector}]`);
       if (this.targetOpen.element) {
-        const codeVideo = this.youTubeCode || this.targetOpen.element.getAttribute(`${this.options.youtubeAttribute}`);
-        if (codeVideo) {
-          const urlVideo = `https://www.youtube.com/embed/${codeVideo}?rel=0&showinfo=0&autoplay=1`;
-          const iframe = document.createElement("iframe");
-          const autoplay = this.options.setAutoplayYoutube ? "autoplay;" : "";
-          iframe.setAttribute("allowfullscreen", "");
-          iframe.setAttribute("allow", `${autoplay}; encrypted-media`);
-          iframe.setAttribute("src", urlVideo);
-          if (!this.targetOpen.element.querySelector(`[${this.options.youtubePlaceAttribute}]`)) {
-            this.targetOpen.element.querySelector("[data-fls-popup-content]").setAttribute(`${this.options.youtubePlaceAttribute}`, "");
-          }
-          this.targetOpen.element.querySelector(`[${this.options.youtubePlaceAttribute}]`).appendChild(iframe);
-        }
         if (this.options.hashSettings.location) {
           this._getHash();
           this._setHash();
@@ -312,11 +278,6 @@ class Popup {
         popup: this
       }
     }));
-    if (this.targetOpen.element.querySelector(`[${this.options.youtubePlaceAttribute}]`)) {
-      setTimeout(() => {
-        this.targetOpen.element.querySelector(`[${this.options.youtubePlaceAttribute}]`).innerHTML = "";
-      }, 500);
-    }
     this.previousOpen.element.removeAttribute(this.options.classes.popupActive);
     this.previousOpen.element.setAttribute("aria-hidden", "true");
     if (!this._reopen) {
@@ -347,10 +308,7 @@ class Popup {
   }
   _openToHash() {
     let classInHash = window.location.hash.replace("#", "");
-    const openButton = document.querySelector(`[${this.options.attributeOpenButton}="${classInHash}"]`);
-    if (openButton) {
-      this.youTubeCode = openButton.getAttribute(this.options.youtubeAttribute) ? openButton.getAttribute(this.options.youtubeAttribute) : null;
-    }
+    document.querySelector(`[${this.options.attributeOpenButton}="${classInHash}"]`);
     if (classInHash) this.open(classInHash);
   }
   // Встановлення хеша
@@ -384,6 +342,52 @@ class Popup {
 }
 document.querySelector("[data-fls-popup]") ? window.addEventListener("load", () => window.flsPopup = new Popup({})) : null;
 addLoadedAttr();
+document.addEventListener("click", function(e) {
+  const btn = e.target.closest('[data-fls-popup-link="popup-tea"]');
+  if (!btn) return;
+  const infoBlock = btn.closest("[data-info]");
+  const popup = document.querySelector('[data-fls-popup="popup-tea"]');
+  const popupContent = popup?.querySelector("[data-fls-popup-content]");
+  if (!infoBlock || !popupContent) return;
+  const dataBlock = infoBlock.querySelector("[data-popup-info]");
+  if (!dataBlock) return;
+  const title = dataBlock.querySelector("[data-popup-title]")?.textContent || "";
+  const subtitle = dataBlock.querySelector("[data-popup-subtitle]")?.textContent || "";
+  const descr = dataBlock.querySelector("[data-popup-descr]")?.innerHTML || "";
+  const specs = dataBlock.querySelectorAll("[data-popup-specs-item]");
+  const img = infoBlock.querySelector(".item-slider__pack img");
+  let specsHTML = "";
+  specs.forEach((specItem) => {
+    const specTitle = specItem.querySelector("[data-popup-specs-title]")?.textContent || "";
+    const specDescr = specItem.querySelector("[data-popup-specs-descr]")?.textContent || "";
+    const isIngredients = specTitle.toLowerCase().includes("склад");
+    specsHTML += `
+			<li class="specification__item">
+				<span class="specification__title">${specTitle}</span>
+				<span class="${isIngredients ? "specification__text" : "specification__descr"}">${specDescr}</span>
+			</li>
+		`;
+  });
+  popupContent.innerHTML = `
+		<div class="popup__picture">
+			<img class="ibg-cn" src="${img?.src || ""}" width="${img?.width || 289}" height="${img?.height || 493}" alt="${img?.alt || "Image"}">
+		</div>
+		<div class="popup__description">
+			<div class="popup__head">
+				<h3 class="popup__title">${title}</h3>
+				<p class="popup__subtitle">${subtitle}</p>
+			</div>
+			<div class="popup__about">
+				${descr}
+			</div>
+			<div class="popup__specification specification">
+				<ul class="specification__list">
+					${specsHTML}
+				</ul>
+			</div>
+		</div>
+	`;
+});
 export {
   isMobile as i
 };

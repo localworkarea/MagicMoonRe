@@ -7,12 +7,19 @@
 		<link rel="preload" href="./assets/fonts/Montserrat-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 		<link rel="preload" href="./assets/fonts/Montserrat-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 		<link rel="preload" href="./assets/fonts/Montserrat-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-		<link rel="shortcut icon" href="./assets/img/favicon.ico">
+		<link rel="shortcut icon" href="assets/img/favicon.ico">
+		<link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicons/favicon-16x16.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="./assets/img/favicons/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="192x192" href="./assets/img/favicons/android-chrome-192x192.png">
+		<link rel="icon" type="image/png" sizes="512x512" href="./assets/img/favicons/android-chrome-512x512.png">
+		<meta name="msapplication-TileColor" content="#da532c">
+		<meta name="msapplication-TileImage" content="./assets/img/favicons/mstile-144x144.png">
 		<title>MAGICMOON | ГОЛОВНА</title>
-		<script type="module" crossorigin="" src="./js/index.min.js?v=1757686253093"></script>
+		<script type="module" crossorigin="" src="./js/index.min.js?v=1757952544900"></script>
 		<link rel="modulepreload" crossorigin="" href="./js/app.min.js">
-		<link rel="stylesheet" crossorigin="" href="./css/app.min.css?v=1757686253093">
-		<link rel="stylesheet" crossorigin="" href="./css/index.min.css?v=1757686253093">
+		<link rel="stylesheet" crossorigin="" href="./css/app.min.css?v=1757952544900">
+		<link rel="stylesheet" crossorigin="" href="./css/index.min.css?v=1757952544900">
 	</head>
 	<body>
 		<div class="wrapper">
@@ -67,7 +74,7 @@
 								<div data-fls-slider="" data-slider="tea-bags" class="slider__slider swiper">
 									<ul class="slider__wrapper swiper-wrapper">
 										<li class="slider__item item-slider swiper-slide">
-											<div class="item-slider__item">
+											<div data-info="" class="item-slider__item">
 												<div class="item-slider__body">
 													<a href="#" class="item-slider__pack" aria-label="посилання на магазин">
 														<img loading="lazy" class="ibg-cn" width="214" height="316" alt="чай" src="./assets/img/packs/herbal-1.webp">
@@ -81,14 +88,47 @@
 													</div>
 												</div>
 												<div class="item-slider__more">
-													<button data-fls-mainbutton="" type="button" class="item-slider__button btn btn--clr-a" aria-label="відкрити модальне вікно з інформацією про чай">
+													<button data-fls-mainbutton="" data-fls-popup-link="popup-tea" type="button" class="item-slider__button btn btn--clr-a" aria-label="відкрити модальне вікно з інформацією про чай">
 														<span>Детальніше</span>
 													</button>
+												</div>
+												<div data-popup-info="" hidden>
+													<div data-popup-title="">Golden Champagne</div>
+													<div data-popup-subtitle="">
+														Суміш чорного та зеленого чаю з пелюстками волошки та ароматом полуниці «Золоте шампанське»
+													</div>
+													<div data-popup-descr="">
+														<p>
+															Суміш чорного та зеленого чаю «Золоте шампанське» - цей чай створений, щоб перетворювати звичайні дні на маленькі свята.
+														</p>
+														<p>
+															Поєднання насиченого чорного та ніжного зеленого чаю збагачене яскравим ароматом стиглої полуниці та легкими нотками «бризків шампанського». Пелюстки волошки надають напою святкової вишуканості.
+														</p>
+														<p>Ідеальний для піднесеного настрою та приємних зустрічей.</p>
+													</div>
+													<div data-popup-specs="">
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Країна походження чайного листа:</span>
+															<span data-popup-specs-descr="">Шрі-Ланка (острів Цейлон), Китай.</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Країна походження інших складових продукту:</span>
+															<span data-popup-specs-descr="">Україна.</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Розфасовка:</span>
+															<span data-popup-specs-descr="">40г (20 пакетиків з ярликом у конвертах (сашетах) по 2 г)</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Склад</span>
+															<span data-popup-specs-descr="">мед, сметана, борошно</span>
+														</div>
+													</div>
 												</div>
 											</div>
 										</li>
 										<li class="slider__item item-slider swiper-slide">
-											<div class="item-slider__item">
+											<div data-info="" class="item-slider__item">
 												<div class="item-slider__body">
 													<a href="#" class="item-slider__pack" aria-label="посилання на магазин">
 														<img loading="lazy" class="ibg-cn" width="214" height="316" alt="чай" src="./assets/img/packs/herbal-2.webp">
@@ -102,14 +142,45 @@
 													</div>
 												</div>
 												<div class="item-slider__more">
-													<button data-fls-mainbutton="" type="button" class="item-slider__button btn btn--clr-a" aria-label="відкрити модальне вікно з інформацією про чай">
+													<button data-fls-mainbutton="" data-fls-popup-link="popup-tea" type="button" class="item-slider__button btn btn--clr-a" aria-label="відкрити модальне вікно з інформацією про чай">
 														<span>Детальніше</span>
 													</button>
+												</div>
+												<div data-popup-info="" hidden>
+													<div data-popup-title="">Strawberry Cocktail</div>
+													<div data-popup-subtitle="">Чай зелений з м’ятою та ароматом полуниці і лимону «Полуничний коктейль»</div>
+													<div data-popup-descr="">
+														<p>Зелений чай «Полуничний коктейль» – свіжа й яскрава насолода.</p>
+														<p>
+															Ароматна полуниця поєднується з ніжним зеленим чаєм та освіжаючою м’ятою. Легкий, фруктово-ягідний смак створює настрій літа у будь-яку пору року.
+														</p>
+														<p>Ідеальний вибір для бадьорості й гарного настрою.</p>
+													</div>
+													<div data-popup-specs="">
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Країна походження чайного листа:</span>
+															<span data-popup-specs-descr="">Китай</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Країна походження інших складових продукту:</span>
+															<span data-popup-specs-descr="">Україна.</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Розфасовка:</span>
+															<span data-popup-specs-descr="">40г (20 пакетиків з ярликом у конвертах (сашетах) по 2 г)</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Склад:</span>
+															<span data-popup-specs-descr="">
+																чай зелений китайський 82%, листя м’яти перцевої 8%, цедра апельсину, каркаде подрібнене, ароматизатор «Полуниця», ароматизатор «Лимон».
+															</span>
+														</div>
+													</div>
 												</div>
 											</div>
 										</li>
 										<li class="slider__item item-slider swiper-slide">
-											<div class="item-slider__item">
+											<div data-info="" class="item-slider__item">
 												<div class="item-slider__body">
 													<a href="#" class="item-slider__pack" aria-label="посилання на магазин">
 														<img loading="lazy" class="ibg-cn" width="214" height="316" alt="чай" src="./assets/img/packs/herbal-3.webp">
@@ -123,26 +194,67 @@
 													</div>
 												</div>
 												<div class="item-slider__more">
-													<button data-fls-mainbutton="" type="button" class="item-slider__button btn btn--clr-a" aria-label="відкрити модальне вікно з інформацією про чай">
+													<button data-fls-mainbutton="" data-fls-popup-link="popup-tea" type="button" class="item-slider__button btn btn--clr-a" aria-label="відкрити модальне вікно з інформацією про чай">
 														<span>Детальніше</span>
 													</button>
+												</div>
+												<div data-popup-info="" hidden>
+													<div data-popup-title="">Chamomile Provence</div>
+													<div data-popup-subtitle="">Чай трав'яний «Ромашковий прованс»</div>
+													<div data-popup-descr="">
+														<p>Чай трав’яний «Ромашковий Прованс» – гармонія ніжності та спокою.</p>
+														<p>
+															Ромашка дбайливо заспокоює, допомагає зняти втому та наповнює тіло легкістю. Лаванда додає тонку квіткову ноту та витонченість французького Провансу.
+														</p>
+														<p>
+															Цей напій стане вашим вечірнім ритуалом релаксу, даруючи м’яке відчуття затишку й умиротворення.
+														</p>
+													</div>
+													<div data-popup-specs="">
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Країна походження інгредієнтів:</span>
+															<span data-popup-specs-descr="">Україна.</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Розфасовка:</span>
+															<span data-popup-specs-descr="">30г (20 пакетиків з ярликом у конвертах (сашетах) по 1,5 г)</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Склад:</span>
+															<span data-popup-specs-descr="">трава ромашки 90%, трава лаванди 10%.</span>
+														</div>
+													</div>
 												</div>
 											</div>
 										</li>
 									</ul>
 									<div class="slider__buttons">
-										<button type="button" class="slider__button swiper-button-prev">
+										<button type="button" class="slider__button swiper-button-prev" aria-label="попередній слайд">
 											<svg width="40" height="40" viewbox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M23 14L17 20L23 26" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 											</svg>
 										</button>
-										<button type="button" class="slider__button swiper-button-next">
+										<button type="button" class="slider__button swiper-button-next" aria-label="наступний слайд">
 											<svg width="40" height="40" viewbox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M17 26L23 20L17 14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 											</svg>
 										</button>
 									</div>
 								</div>
+							</div>
+							<div class="section-1__img-1">
+								<picture>
+									<source srcset="./assets/img/elements/sachets-1-pc.webp" media="(min-width: 30.062em)" type="image/webp">
+									<source srcset="./assets/img/elements/sachets-1-mb.webp" type="image/webp">
+									<img loading="lazy" class="ibg-cn" width="1920" height="900" alt="чай" src="./assets/img/elements/sachets-1-pc.webp">
+								</picture>
+							</div>
+							<div class="section-1__img-2">
+								<picture>
+									<source srcset="./assets/img/elements/sachets-2-pc.webp" media="(min-width: 30.062em)" type="image/webp">
+									<source srcset="./assets/img/elements/sachets-2-mb.webp" type="image/webp">
+									<img loading="lazy" class="ibg-cn" width="1920" height="900" alt="чай" src="./assets/img/elements/sachets-2-pc.webp">
+								</picture>
 							</div>
 						</div>
 					</div>
@@ -155,7 +267,7 @@
 								<div data-fls-slider="" data-slider="tea-herbal" class="slider__slider swiper">
 									<ul class="slider__wrapper swiper-wrapper">
 										<li class="slider__item item-slider swiper-slide">
-											<div class="item-slider__item">
+											<div data-info="" class="item-slider__item">
 												<div class="item-slider__body">
 													<a href="#" class="item-slider__pack" aria-label="посилання на магазин">
 														<img loading="lazy" class="ibg-cn" width="214" height="316" alt="чай" src="./assets/img/packs/herbal-sachets-1.webp">
@@ -169,14 +281,45 @@
 													</div>
 												</div>
 												<div class="item-slider__more">
-													<button data-fls-mainbutton="" type="button" class="item-slider__button btn btn--clr-b" aria-label="відкрити модальне вікно з інформацією про чай">
+													<button data-fls-mainbutton="" data-fls-popup-link="popup-tea" type="button" class="item-slider__button btn btn--clr-b" aria-label="відкрити модальне вікно з інформацією про чай">
 														<span>Детальніше</span>
 													</button>
+												</div>
+												<div data-popup-info="" hidden>
+													<div data-popup-title="">Lavender Touch</div>
+													<div data-popup-subtitle="">Чай трав'яний «Лавандовий дотик»</div>
+													<div data-popup-descr="">
+														<p>
+															Чай трав’яний «Лавандовий дотик» немов лагідні обійми природи, що дарують рівновагу й внутрішній баланс.
+														</p>
+														<p>
+															Ніжна лаванда дарує відчуття умиротворення, меліса й м’ята освіжають думки, а сушене яблуко додає природної солодкості.
+														</p>
+														<p>
+															Лимонна трава й ехінацея збагачують смак тонкими нотами та підтримують природний імунітет.
+														</p>
+													</div>
+													<div data-popup-specs="">
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Країна походження інгредієнтів:</span>
+															<span data-popup-specs-descr="">Україна.</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Розфасовка:</span>
+															<span data-popup-specs-descr="">30г (20 пакетиків з ярликом у конвертах (сашетах) по 1,5 г)</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Склад:</span>
+															<span data-popup-specs-descr="">
+																трава лаванди 33,6%, трава меліси 25%, плоди яблука сушеного 12%, листя м‘яти перцевої 10%, лимонна трава, ехінацеї трава 9,7%.
+															</span>
+														</div>
+													</div>
 												</div>
 											</div>
 										</li>
 										<li class="slider__item item-slider swiper-slide">
-											<div class="item-slider__item">
+											<div data-info="" class="item-slider__item">
 												<div class="item-slider__body">
 													<a href="#" class="item-slider__pack" aria-label="посилання на магазин">
 														<img loading="lazy" class="ibg-cn" width="214" height="316" alt="чай" src="./assets/img/packs/herbal-sachets-2.webp">
@@ -190,14 +333,41 @@
 													</div>
 												</div>
 												<div class="item-slider__more">
-													<button data-fls-mainbutton="" type="button" class="item-slider__button btn btn--clr-b" aria-label="відкрити модальне вікно з інформацією про чай">
+													<button data-fls-mainbutton="" data-fls-popup-link="popup-tea" type="button" class="item-slider__button btn btn--clr-b" aria-label="відкрити модальне вікно з інформацією про чай">
 														<span>Детальніше</span>
 													</button>
+												</div>
+												<div data-popup-info="" hidden>
+													<div data-popup-title="">Herbal Jazz</div>
+													<div data-popup-subtitle="">Чай трав'яний «Трав'яний джаз»</div>
+													<div data-popup-descr="">
+														<p>Чай трав’яний «Трав’яний джаз» – ритм природи у вашій чашці.</p>
+														<p>
+															Меліса ніжно заспокоює, м’ята освіжає, лимонник додає бадьорості, шипшина дарує легку фруктову кислинку, а чебрець підкреслює природний смак.
+														</p>
+														<p>Цей чай створений для гармонії та гарного самопочуття кожного дня.</p>
+													</div>
+													<div data-popup-specs="">
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Країна походження інгредієнтів:</span>
+															<span data-popup-specs-descr="">Україна.</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Розфасовка:</span>
+															<span data-popup-specs-descr="">30г (20 пакетиків з ярликом у конвертах (сашетах) по 1,5 г)</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Склад:</span>
+															<span data-popup-specs-descr="">
+																трава меліси 43%, листя м‘яти перцевої 20%, трава лимонника 15%, плоди шипшини подрібнені 12%, чебрецю трава 10%.
+															</span>
+														</div>
+													</div>
 												</div>
 											</div>
 										</li>
 										<li class="slider__item item-slider swiper-slide">
-											<div class="item-slider__item">
+											<div data-info="" class="item-slider__item">
 												<div class="item-slider__body">
 													<a href="#" class="item-slider__pack" aria-label="посилання на магазин">
 														<img loading="lazy" class="ibg-cn" width="214" height="316" alt="чай" src="./assets/img/packs/herbal-sachets-3.webp">
@@ -211,14 +381,39 @@
 													</div>
 												</div>
 												<div class="item-slider__more">
-													<button data-fls-mainbutton="" type="button" class="item-slider__button btn btn--clr-b" aria-label="відкрити модальне вікно з інформацією про чай">
+													<button data-fls-mainbutton="" data-fls-popup-link="popup-tea" type="button" class="item-slider__button btn btn--clr-b" aria-label="відкрити модальне вікно з інформацією про чай">
 														<span>Детальніше</span>
 													</button>
+												</div>
+												<div data-popup-info="" hidden>
+													<div data-popup-title="">Moon Tango</div>
+													<div data-popup-subtitle="">Чай трав'яний «Танго місяця»</div>
+													<div data-popup-descr="">
+														<p>Чай трав’яний «Танго місяця» – ніжний дует м’яти та ромашки.</p>
+														<p>
+															М’ята дарує свіжість і легкість, ромашка заспокоює та огортає теплом. Разом вони створюють напій, що допомагає розслабитись, зняти напругу та налаштуватись на спокійний сон.
+														</p>
+														<p>Ідеальний вечірній чай для затишку та гармонії.</p>
+													</div>
+													<div data-popup-specs="">
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Країна походження інгредієнтів:</span>
+															<span data-popup-specs-descr="">Україна.</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Розфасовка:</span>
+															<span data-popup-specs-descr="">30г (20 пакетиків з ярликом у конвертах (сашетах) по 1,5 г)</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Склад:</span>
+															<span data-popup-specs-descr="">листя м‘яти перцевої 50%, трава ромашки 50%.</span>
+														</div>
+													</div>
 												</div>
 											</div>
 										</li>
 										<li class="slider__item item-slider swiper-slide">
-											<div class="item-slider__item">
+											<div data-info="" class="item-slider__item">
 												<div class="item-slider__body">
 													<a href="#" class="item-slider__pack" aria-label="посилання на магазин">
 														<img loading="lazy" class="ibg-cn" width="214" height="316" alt="чай" src="./assets/img/packs/herbal-sachets-4.webp">
@@ -232,26 +427,68 @@
 													</div>
 												</div>
 												<div class="item-slider__more">
-													<button data-fls-mainbutton="" type="button" class="item-slider__button btn btn--clr-b" aria-label="відкрити модальне вікно з інформацією про чай">
+													<button data-fls-mainbutton="" data-fls-popup-link="popup-tea" type="button" class="item-slider__button btn btn--clr-b" aria-label="відкрити модальне вікно з інформацією про чай">
 														<span>Детальніше</span>
 													</button>
+												</div>
+												<div data-popup-info="" hidden>
+													<div data-popup-title="">Moon Tango</div>
+													<div data-popup-subtitle="">Чай трав'яний «Танго місяця»</div>
+													<div data-popup-descr="">
+														<p>Чай трав’яний «Танго місяця» – ніжний дует м’яти та ромашки.</p>
+														<p>
+															М’ята дарує свіжість і легкість, ромашка заспокоює та огортає теплом. Разом вони створюють напій, що допомагає розслабитись, зняти напругу та налаштуватись на спокійний сон.
+														</p>
+														<p>Ідеальний вечірній чай для затишку та гармонії.</p>
+													</div>
+													<div data-popup-specs="">
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Країна походження інгредієнтів:</span>
+															<span data-popup-specs-descr="">Україна.</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Розфасовка:</span>
+															<span data-popup-specs-descr="">30г (20 пакетиків з ярликом у конвертах (сашетах) по 1,5 г)</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Склад:</span>
+															<span data-popup-specs-descr="">листя м‘яти перцевої 50%, трава ромашки 50%.</span>
+														</div>
+													</div>
 												</div>
 											</div>
 										</li>
 									</ul>
 									<div class="slider__buttons">
-										<button type="button" class="slider__button swiper-button-prev">
+										<button type="button" class="slider__button swiper-button-prev" aria-label="попередній слайд">
 											<svg width="40" height="40" viewbox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M23 14L17 20L23 26" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 											</svg>
 										</button>
-										<button type="button" class="slider__button swiper-button-next">
+										<button type="button" class="slider__button swiper-button-next" aria-label="наступний слайд">
 											<svg width="40" height="40" viewbox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M17 26L23 20L17 14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 											</svg>
 										</button>
 									</div>
 								</div>
+							</div>
+							<div class="section-2__img-1">
+								<picture>
+									<source srcset="./assets/img/elements/sachets-herbal-1-pc.webp" media="(min-width: 30.062em)" type="image/webp">
+									<source srcset="./assets/img/elements/sachets-herbal-1-mb.webp" type="image/webp">
+									<img loading="lazy" class="ibg-cn" width="1920" height="900" alt="чай" src="./assets/img/elements/sachets-herbal-1-pc.webp">
+								</picture>
+							</div>
+							<div class="section-2__img-2">
+								<picture>
+									<source srcset="./assets/img/elements/sachets-herbal-2-pc.webp" media="(min-width: 30.062em)" type="image/webp">
+									<source srcset="./assets/img/elements/sachets-herbal-2-mb.webp" type="image/webp">
+									<img loading="lazy" class="ibg-cn" width="1920" height="900" alt="чай" src="./assets/img/elements/sachets-herbal-2-pc.webp">
+								</picture>
+							</div>
+							<div class="section-2__img-3">
+								<img loading="lazy" class="ibg-cn" width="1920" height="900" alt="чай" src="./assets/img/elements/sachets-herbal-3.webp">
 							</div>
 						</div>
 					</div>
@@ -264,7 +501,7 @@
 								<div data-fls-slider="" data-slider="tea-herbal" class="slider__slider swiper">
 									<ul class="slider__wrapper swiper-wrapper">
 										<li class="slider__item item-slider swiper-slide">
-											<div class="item-slider__item">
+											<div data-info="" class="item-slider__item">
 												<div class="item-slider__body">
 													<a href="#" class="item-slider__pack" aria-label="посилання на магазин">
 														<img loading="lazy" class="ibg-cn" width="214" height="316" alt="чай" src="./assets/img/packs/bags-1.webp">
@@ -278,14 +515,41 @@
 													</div>
 												</div>
 												<div class="item-slider__more">
-													<button data-fls-mainbutton="" type="button" class="item-slider__button btn btn--clr-c" aria-label="відкрити модальне вікно з інформацією про чай">
+													<button data-fls-mainbutton="" data-fls-popup-link="popup-tea" type="button" class="item-slider__button btn btn--clr-c" aria-label="відкрити модальне вікно з інформацією про чай">
 														<span>Детальніше</span>
 													</button>
+												</div>
+												<div data-popup-info="" hidden>
+													<div data-popup-title="">Herbal Jazz</div>
+													<div data-popup-subtitle="">Чай трав'яний «Трав'яний джаз»</div>
+													<div data-popup-descr="">
+														<p>Чай трав’яний «Трав’яний джаз» – ритм природи у вашій чашці.</p>
+														<p>
+															Меліса ніжно заспокоює, м’ята освіжає, лимонник додає бадьорості, шипшина дарує легку фруктову кислинку, а чебрець підкреслює природний смак.
+														</p>
+														<p>Цей чай створений для гармонії та гарного самопочуття кожного дня.</p>
+													</div>
+													<div data-popup-specs="">
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Країна походження інгредієнтів:</span>
+															<span data-popup-specs-descr="">Україна.</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Розфасовка:</span>
+															<span data-popup-specs-descr="">30г (20 пакетиків з ярликом у конвертах (сашетах) по 1,5 г)</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Склад:</span>
+															<span data-popup-specs-descr="">
+																трава меліси 43%, листя м‘яти перцевої 20%, трава лимонника 15%, плоди шипшини подрібнені 12%, чебрецю трава 10%.
+															</span>
+														</div>
+													</div>
 												</div>
 											</div>
 										</li>
 										<li class="slider__item item-slider swiper-slide">
-											<div class="item-slider__item">
+											<div data-info="" class="item-slider__item">
 												<div class="item-slider__body">
 													<a href="#" class="item-slider__pack" aria-label="посилання на магазин">
 														<img loading="lazy" class="ibg-cn" width="214" height="316" alt="чай" src="./assets/img/packs/bags-2.webp">
@@ -299,14 +563,45 @@
 													</div>
 												</div>
 												<div class="item-slider__more">
-													<button data-fls-mainbutton="" type="button" class="item-slider__button btn btn--clr-c" aria-label="відкрити модальне вікно з інформацією про чай">
+													<button data-fls-mainbutton="" data-fls-popup-link="popup-tea" type="button" class="item-slider__button btn btn--clr-c" aria-label="відкрити модальне вікно з інформацією про чай">
 														<span>Детальніше</span>
 													</button>
+												</div>
+												<div data-popup-info="" hidden>
+													<div data-popup-title="">Lavender Touch</div>
+													<div data-popup-subtitle="">Чай трав'яний «Лавандовий дотик»</div>
+													<div data-popup-descr="">
+														<p>
+															Чай трав’яний «Лавандовий дотик» немов лагідні обійми природи, що дарують рівновагу й внутрішній баланс.
+														</p>
+														<p>
+															Ніжна лаванда дарує відчуття умиротворення, меліса й м’ята освіжають думки, а сушене яблуко додає природної солодкості.
+														</p>
+														<p>
+															Лимонна трава й ехінацея збагачують смак тонкими нотами та підтримують природний імунітет.
+														</p>
+													</div>
+													<div data-popup-specs="">
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Країна походження інгредієнтів:</span>
+															<span data-popup-specs-descr="">Україна.</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Розфасовка:</span>
+															<span data-popup-specs-descr="">30г (20 пакетиків з ярликом у конвертах (сашетах) по 1,5 г)</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Склад:</span>
+															<span data-popup-specs-descr="">
+																трава лаванди 33,6%, трава меліси 25%, плоди яблука сушеного 12%, листя м‘яти перцевої 10%, лимонна трава, ехінацеї трава 9,7%.
+															</span>
+														</div>
+													</div>
 												</div>
 											</div>
 										</li>
 										<li class="slider__item item-slider swiper-slide">
-											<div class="item-slider__item">
+											<div data-info="" class="item-slider__item">
 												<div class="item-slider__body">
 													<a href="#" class="item-slider__pack" aria-label="посилання на магазин">
 														<img loading="lazy" class="ibg-cn" width="214" height="316" alt="чай" src="./assets/img/packs/bags-3.webp">
@@ -320,14 +615,41 @@
 													</div>
 												</div>
 												<div class="item-slider__more">
-													<button data-fls-mainbutton="" type="button" class="item-slider__button btn btn--clr-c" aria-label="відкрити модальне вікно з інформацією про чай">
+													<button data-fls-mainbutton="" data-fls-popup-link="popup-tea" type="button" class="item-slider__button btn btn--clr-c" aria-label="відкрити модальне вікно з інформацією про чай">
 														<span>Детальніше</span>
 													</button>
+												</div>
+												<div data-popup-info="" hidden>
+													<div data-popup-title="">Chamomile Provence</div>
+													<div data-popup-subtitle="">Чай трав'яний «Ромашковий прованс»</div>
+													<div data-popup-descr="">
+														<p>Чай трав’яний «Ромашковий Прованс» – гармонія ніжності та спокою.</p>
+														<p>
+															Ромашка дбайливо заспокоює, допомагає зняти втому та наповнює тіло легкістю. Лаванда додає тонку квіткову ноту та витонченість французького Провансу.
+														</p>
+														<p>
+															Цей напій стане вашим вечірнім ритуалом релаксу, даруючи м’яке відчуття затишку й умиротворення.
+														</p>
+													</div>
+													<div data-popup-specs="">
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Країна походження інгредієнтів:</span>
+															<span data-popup-specs-descr="">Україна.</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Розфасовка:</span>
+															<span data-popup-specs-descr="">30г (20 пакетиків з ярликом у конвертах (сашетах) по 1,5 г)</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Склад:</span>
+															<span data-popup-specs-descr="">трава ромашки 90%, трава лаванди 10%.</span>
+														</div>
+													</div>
 												</div>
 											</div>
 										</li>
 										<li class="slider__item item-slider swiper-slide">
-											<div class="item-slider__item">
+											<div data-info="" class="item-slider__item">
 												<div class="item-slider__body">
 													<a href="#" class="item-slider__pack" aria-label="посилання на магазин">
 														<img loading="lazy" class="ibg-cn" width="214" height="316" alt="чай" src="./assets/img/packs/bags-4.webp">
@@ -341,14 +663,45 @@
 													</div>
 												</div>
 												<div class="item-slider__more">
-													<button data-fls-mainbutton="" type="button" class="item-slider__button btn btn--clr-c" aria-label="відкрити модальне вікно з інформацією про чай">
+													<button data-fls-mainbutton="" data-fls-popup-link="popup-tea" type="button" class="item-slider__button btn btn--clr-c" aria-label="відкрити модальне вікно з інформацією про чай">
 														<span>Детальніше</span>
 													</button>
+												</div>
+												<div data-popup-info="" hidden>
+													<div data-popup-title="">Strawberry Cocktail</div>
+													<div data-popup-subtitle="">Чай зелений з м’ятою та ароматом полуниці і лимону «Полуничний коктейль»</div>
+													<div data-popup-descr="">
+														<p>Зелений чай «Полуничний коктейль» – свіжа й яскрава насолода.</p>
+														<p>
+															Ароматна полуниця поєднується з ніжним зеленим чаєм та освіжаючою м’ятою. Легкий, фруктово-ягідний смак створює настрій літа у будь-яку пору року.
+														</p>
+														<p>Ідеальний вибір для бадьорості й гарного настрою.</p>
+													</div>
+													<div data-popup-specs="">
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Країна походження чайного листа:</span>
+															<span data-popup-specs-descr="">Китай</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Країна походження інших складових продукту:</span>
+															<span data-popup-specs-descr="">Україна.</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Розфасовка:</span>
+															<span data-popup-specs-descr="">40г (20 пакетиків з ярликом у конвертах (сашетах) по 2 г)</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Склад:</span>
+															<span data-popup-specs-descr="">
+																чай зелений китайський 82%, листя м’яти перцевої 8%, цедра апельсину, каркаде подрібнене, ароматизатор «Полуниця», ароматизатор «Лимон».
+															</span>
+														</div>
+													</div>
 												</div>
 											</div>
 										</li>
 										<li class="slider__item item-slider swiper-slide">
-											<div class="item-slider__item">
+											<div data-info="" class="item-slider__item">
 												<div class="item-slider__body">
 													<a href="#" class="item-slider__pack" aria-label="посилання на магазин">
 														<img loading="lazy" class="ibg-cn" width="214" height="316" alt="чай" src="./assets/img/packs/bags-5.webp">
@@ -362,20 +715,53 @@
 													</div>
 												</div>
 												<div class="item-slider__more">
-													<button data-fls-mainbutton="" type="button" class="item-slider__button btn btn--clr-c" aria-label="відкрити модальне вікно з інформацією про чай">
+													<button data-fls-mainbutton="" data-fls-popup-link="popup-tea" type="button" class="item-slider__button btn btn--clr-c" aria-label="відкрити модальне вікно з інформацією про чай">
 														<span>Детальніше</span>
 													</button>
+												</div>
+												<div data-popup-info="" hidden>
+													<div data-popup-title="">Golden Champagne</div>
+													<div data-popup-subtitle="">
+														Суміш чорного та зеленого чаю з пелюстками волошки та ароматом полуниці «Золоте шампанське»
+													</div>
+													<div data-popup-descr="">
+														<p>
+															Суміш чорного та зеленого чаю «Золоте шампанське» - цей чай створений, щоб перетворювати звичайні дні на маленькі свята.
+														</p>
+														<p>
+															Поєднання насиченого чорного та ніжного зеленого чаю збагачене яскравим ароматом стиглої полуниці та легкими нотками «бризків шампанського». Пелюстки волошки надають напою святкової вишуканості.
+														</p>
+														<p>Ідеальний для піднесеного настрою та приємних зустрічей.</p>
+													</div>
+													<div data-popup-specs="">
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Країна походження чайного листа:</span>
+															<span data-popup-specs-descr="">Шрі-Ланка (острів Цейлон), Китай.</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Країна походження інших складових продукту:</span>
+															<span data-popup-specs-descr="">Україна.</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Розфасовка:</span>
+															<span data-popup-specs-descr="">40г (20 пакетиків з ярликом у конвертах (сашетах) по 2 г)</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Склад</span>
+															<span data-popup-specs-descr="">мед, сметана, борошно</span>
+														</div>
+													</div>
 												</div>
 											</div>
 										</li>
 									</ul>
 									<div class="slider__buttons">
-										<button type="button" class="slider__button swiper-button-prev">
+										<button type="button" class="slider__button swiper-button-prev" aria-label="попередній слайд">
 											<svg width="40" height="40" viewbox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M23 14L17 20L23 26" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 											</svg>
 										</button>
-										<button type="button" class="slider__button swiper-button-next">
+										<button type="button" class="slider__button swiper-button-next" aria-label="наступний слайд">
 											<svg width="40" height="40" viewbox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M17 26L23 20L17 14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 											</svg>
@@ -394,7 +780,7 @@
 								<div data-fls-slider="" data-slider="tea-bags" class="slider__slider swiper">
 									<ul class="slider__wrapper swiper-wrapper">
 										<li class="slider__item item-slider swiper-slide">
-											<div class="item-slider__item">
+											<div data-info="" class="item-slider__item">
 												<div class="item-slider__body">
 													<a href="#" class="item-slider__pack" aria-label="посилання на магазин">
 														<img loading="lazy" class="ibg-cn" width="214" height="316" alt="чай" src="./assets/img/packs/leaf-1.webp">
@@ -408,14 +794,39 @@
 													</div>
 												</div>
 												<div class="item-slider__more">
-													<button data-fls-mainbutton="" type="button" class="item-slider__button btn btn--clr-d" aria-label="відкрити модальне вікно з інформацією про чай">
+													<button data-fls-mainbutton="" data-fls-popup-link="popup-tea" type="button" class="item-slider__button btn btn--clr-d" aria-label="відкрити модальне вікно з інформацією про чай">
 														<span>Детальніше</span>
 													</button>
+												</div>
+												<div data-popup-info="" hidden>
+													<div data-popup-title="">Moon Tango</div>
+													<div data-popup-subtitle="">Чай трав'яний «Танго місяця»</div>
+													<div data-popup-descr="">
+														<p>Чай трав’яний «Танго місяця» – ніжний дует м’яти та ромашки.</p>
+														<p>
+															М’ята дарує свіжість і легкість, ромашка заспокоює та огортає теплом. Разом вони створюють напій, що допомагає розслабитись, зняти напругу та налаштуватись на спокійний сон.
+														</p>
+														<p>Ідеальний вечірній чай для затишку та гармонії.</p>
+													</div>
+													<div data-popup-specs="">
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Країна походження інгредієнтів:</span>
+															<span data-popup-specs-descr="">Україна.</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Розфасовка:</span>
+															<span data-popup-specs-descr="">30г (20 пакетиків з ярликом у конвертах (сашетах) по 1,5 г)</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Склад:</span>
+															<span data-popup-specs-descr="">листя м‘яти перцевої 50%, трава ромашки 50%.</span>
+														</div>
+													</div>
 												</div>
 											</div>
 										</li>
 										<li class="slider__item item-slider swiper-slide">
-											<div class="item-slider__item">
+											<div data-info="" class="item-slider__item">
 												<div class="item-slider__body">
 													<a href="#" class="item-slider__pack" aria-label="посилання на магазин">
 														<img loading="lazy" class="ibg-cn" width="214" height="316" alt="чай" src="./assets/img/packs/leaf-2.webp">
@@ -429,14 +840,47 @@
 													</div>
 												</div>
 												<div class="item-slider__more">
-													<button data-fls-mainbutton="" type="button" class="item-slider__button btn btn--clr-d" aria-label="відкрити модальне вікно з інформацією про чай">
+													<button data-fls-mainbutton="" data-fls-popup-link="popup-tea" type="button" class="item-slider__button btn btn--clr-d" aria-label="відкрити модальне вікно з інформацією про чай">
 														<span>Детальніше</span>
 													</button>
+												</div>
+												<div data-popup-info="" hidden>
+													<div data-popup-title="">Golden Champagne</div>
+													<div data-popup-subtitle="">
+														Суміш чорного та зеленого чаю з пелюстками волошки та ароматом полуниці «Золоте шампанське»
+													</div>
+													<div data-popup-descr="">
+														<p>
+															Суміш чорного та зеленого чаю «Золоте шампанське» - цей чай створений, щоб перетворювати звичайні дні на маленькі свята.
+														</p>
+														<p>
+															Поєднання насиченого чорного та ніжного зеленого чаю збагачене яскравим ароматом стиглої полуниці та легкими нотками «бризків шампанського». Пелюстки волошки надають напою святкової вишуканості.
+														</p>
+														<p>Ідеальний для піднесеного настрою та приємних зустрічей.</p>
+													</div>
+													<div data-popup-specs="">
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Країна походження чайного листа:</span>
+															<span data-popup-specs-descr="">Шрі-Ланка (острів Цейлон), Китай.</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Країна походження інших складових продукту:</span>
+															<span data-popup-specs-descr="">Україна.</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Розфасовка:</span>
+															<span data-popup-specs-descr="">40г (20 пакетиків з ярликом у конвертах (сашетах) по 2 г)</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Склад</span>
+															<span data-popup-specs-descr="">мед, сметана, борошно</span>
+														</div>
+													</div>
 												</div>
 											</div>
 										</li>
 										<li class="slider__item item-slider swiper-slide">
-											<div class="item-slider__item">
+											<div data-info="" class="item-slider__item">
 												<div class="item-slider__body">
 													<a href="#" class="item-slider__pack" aria-label="посилання на магазин">
 														<img loading="lazy" class="ibg-cn" width="214" height="316" alt="чай" src="./assets/img/packs/leaf-3.webp">
@@ -450,20 +894,51 @@
 													</div>
 												</div>
 												<div class="item-slider__more">
-													<button data-fls-mainbutton="" type="button" class="item-slider__button btn btn--clr-d" aria-label="відкрити модальне вікно з інформацією про чай">
+													<button data-fls-mainbutton="" data-fls-popup-link="popup-tea" type="button" class="item-slider__button btn btn--clr-d" aria-label="відкрити модальне вікно з інформацією про чай">
 														<span>Детальніше</span>
 													</button>
+												</div>
+												<div data-popup-info="" hidden>
+													<div data-popup-title="">Strawberry Cocktail</div>
+													<div data-popup-subtitle="">Чай зелений з м’ятою та ароматом полуниці і лимону «Полуничний коктейль»</div>
+													<div data-popup-descr="">
+														<p>Зелений чай «Полуничний коктейль» – свіжа й яскрава насолода.</p>
+														<p>
+															Ароматна полуниця поєднується з ніжним зеленим чаєм та освіжаючою м’ятою. Легкий, фруктово-ягідний смак створює настрій літа у будь-яку пору року.
+														</p>
+														<p>Ідеальний вибір для бадьорості й гарного настрою.</p>
+													</div>
+													<div data-popup-specs="">
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Країна походження чайного листа:</span>
+															<span data-popup-specs-descr="">Китай</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Країна походження інших складових продукту:</span>
+															<span data-popup-specs-descr="">Україна.</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Розфасовка:</span>
+															<span data-popup-specs-descr="">40г (20 пакетиків з ярликом у конвертах (сашетах) по 2 г)</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Склад:</span>
+															<span data-popup-specs-descr="">
+																чай зелений китайський 82%, листя м’яти перцевої 8%, цедра апельсину, каркаде подрібнене, ароматизатор «Полуниця», ароматизатор «Лимон».
+															</span>
+														</div>
+													</div>
 												</div>
 											</div>
 										</li>
 									</ul>
 									<div class="slider__buttons">
-										<button type="button" class="slider__button swiper-button-prev">
+										<button type="button" class="slider__button swiper-button-prev" aria-label="попередній слайд">
 											<svg width="40" height="40" viewbox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M23 14L17 20L23 26" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 											</svg>
 										</button>
-										<button type="button" class="slider__button swiper-button-next">
+										<button type="button" class="slider__button swiper-button-next" aria-label="наступний слайд">
 											<svg width="40" height="40" viewbox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M17 26L23 20L17 14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 											</svg>
@@ -482,7 +957,7 @@
 								<div data-fls-slider="" data-slider="tea-herbal" class="slider__slider swiper">
 									<ul class="slider__wrapper swiper-wrapper">
 										<li class="slider__item item-slider swiper-slide">
-											<div class="item-slider__item">
+											<div data-info="" class="item-slider__item">
 												<div class="item-slider__body">
 													<a href="#" class="item-slider__pack" aria-label="посилання на магазин">
 														<img loading="lazy" class="ibg-cn" width="214" height="316" alt="чай" src="./assets/img/packs/concentrated-1.webp">
@@ -496,14 +971,39 @@
 													</div>
 												</div>
 												<div class="item-slider__more">
-													<button data-fls-mainbutton="" type="button" class="item-slider__button btn btn--clr-e" aria-label="відкрити модальне вікно з інформацією про чай">
+													<button data-fls-mainbutton="" data-fls-popup-link="popup-tea" type="button" class="item-slider__button btn btn--clr-e" aria-label="відкрити модальне вікно з інформацією про чай">
 														<span>Детальніше</span>
 													</button>
+												</div>
+												<div data-popup-info="" hidden>
+													<div data-popup-title="">Moon Tango</div>
+													<div data-popup-subtitle="">Чай трав'яний «Танго місяця»</div>
+													<div data-popup-descr="">
+														<p>Чай трав’яний «Танго місяця» – ніжний дует м’яти та ромашки.</p>
+														<p>
+															М’ята дарує свіжість і легкість, ромашка заспокоює та огортає теплом. Разом вони створюють напій, що допомагає розслабитись, зняти напругу та налаштуватись на спокійний сон.
+														</p>
+														<p>Ідеальний вечірній чай для затишку та гармонії.</p>
+													</div>
+													<div data-popup-specs="">
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Країна походження інгредієнтів:</span>
+															<span data-popup-specs-descr="">Україна.</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Розфасовка:</span>
+															<span data-popup-specs-descr="">30г (20 пакетиків з ярликом у конвертах (сашетах) по 1,5 г)</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Склад:</span>
+															<span data-popup-specs-descr="">листя м‘яти перцевої 50%, трава ромашки 50%.</span>
+														</div>
+													</div>
 												</div>
 											</div>
 										</li>
 										<li class="slider__item item-slider swiper-slide">
-											<div class="item-slider__item">
+											<div data-info="" class="item-slider__item">
 												<div class="item-slider__body">
 													<a href="#" class="item-slider__pack" aria-label="посилання на магазин">
 														<img loading="lazy" class="ibg-cn" width="214" height="316" alt="чай" src="./assets/img/packs/concentrated-2.webp">
@@ -517,14 +1017,45 @@
 													</div>
 												</div>
 												<div class="item-slider__more">
-													<button data-fls-mainbutton="" type="button" class="item-slider__button btn btn--clr-e" aria-label="відкрити модальне вікно з інформацією про чай">
+													<button data-fls-mainbutton="" data-fls-popup-link="popup-tea" type="button" class="item-slider__button btn btn--clr-e" aria-label="відкрити модальне вікно з інформацією про чай">
 														<span>Детальніше</span>
 													</button>
+												</div>
+												<div data-popup-info="" hidden>
+													<div data-popup-title="">Strawberry Cocktail</div>
+													<div data-popup-subtitle="">Чай зелений з м’ятою та ароматом полуниці і лимону «Полуничний коктейль»</div>
+													<div data-popup-descr="">
+														<p>Зелений чай «Полуничний коктейль» – свіжа й яскрава насолода.</p>
+														<p>
+															Ароматна полуниця поєднується з ніжним зеленим чаєм та освіжаючою м’ятою. Легкий, фруктово-ягідний смак створює настрій літа у будь-яку пору року.
+														</p>
+														<p>Ідеальний вибір для бадьорості й гарного настрою.</p>
+													</div>
+													<div data-popup-specs="">
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Країна походження чайного листа:</span>
+															<span data-popup-specs-descr="">Китай</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Країна походження інших складових продукту:</span>
+															<span data-popup-specs-descr="">Україна.</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Розфасовка:</span>
+															<span data-popup-specs-descr="">40г (20 пакетиків з ярликом у конвертах (сашетах) по 2 г)</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Склад:</span>
+															<span data-popup-specs-descr="">
+																чай зелений китайський 82%, листя м’яти перцевої 8%, цедра апельсину, каркаде подрібнене, ароматизатор «Полуниця», ароматизатор «Лимон».
+															</span>
+														</div>
+													</div>
 												</div>
 											</div>
 										</li>
 										<li class="slider__item item-slider swiper-slide">
-											<div class="item-slider__item">
+											<div data-info="" class="item-slider__item">
 												<div class="item-slider__body">
 													<a href="#" class="item-slider__pack" aria-label="посилання на магазин">
 														<img loading="lazy" class="ibg-cn" width="214" height="316" alt="чай" src="./assets/img/packs/concentrated-3.webp">
@@ -538,14 +1069,45 @@
 													</div>
 												</div>
 												<div class="item-slider__more">
-													<button data-fls-mainbutton="" type="button" class="item-slider__button btn btn--clr-e" aria-label="відкрити модальне вікно з інформацією про чай">
+													<button data-fls-mainbutton="" data-fls-popup-link="popup-tea" type="button" class="item-slider__button btn btn--clr-e" aria-label="відкрити модальне вікно з інформацією про чай">
 														<span>Детальніше</span>
 													</button>
+												</div>
+												<div data-popup-info="" hidden>
+													<div data-popup-title="">Lavender Touch</div>
+													<div data-popup-subtitle="">Чай трав'яний «Лавандовий дотик»</div>
+													<div data-popup-descr="">
+														<p>
+															Чай трав’яний «Лавандовий дотик» немов лагідні обійми природи, що дарують рівновагу й внутрішній баланс.
+														</p>
+														<p>
+															Ніжна лаванда дарує відчуття умиротворення, меліса й м’ята освіжають думки, а сушене яблуко додає природної солодкості.
+														</p>
+														<p>
+															Лимонна трава й ехінацея збагачують смак тонкими нотами та підтримують природний імунітет.
+														</p>
+													</div>
+													<div data-popup-specs="">
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Країна походження інгредієнтів:</span>
+															<span data-popup-specs-descr="">Україна.</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Розфасовка:</span>
+															<span data-popup-specs-descr="">30г (20 пакетиків з ярликом у конвертах (сашетах) по 1,5 г)</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Склад:</span>
+															<span data-popup-specs-descr="">
+																трава лаванди 33,6%, трава меліси 25%, плоди яблука сушеного 12%, листя м‘яти перцевої 10%, лимонна трава, ехінацеї трава 9,7%.
+															</span>
+														</div>
+													</div>
 												</div>
 											</div>
 										</li>
 										<li class="slider__item item-slider swiper-slide">
-											<div class="item-slider__item">
+											<div data-info="" class="item-slider__item">
 												<div class="item-slider__body">
 													<a href="#" class="item-slider__pack" aria-label="посилання на магазин">
 														<img loading="lazy" class="ibg-cn" width="214" height="316" alt="чай" src="./assets/img/packs/concentrated-4.webp">
@@ -559,14 +1121,41 @@
 													</div>
 												</div>
 												<div class="item-slider__more">
-													<button data-fls-mainbutton="" type="button" class="item-slider__button btn btn--clr-e" aria-label="відкрити модальне вікно з інформацією про чай">
+													<button data-fls-mainbutton="" data-fls-popup-link="popup-tea" type="button" class="item-slider__button btn btn--clr-e" aria-label="відкрити модальне вікно з інформацією про чай">
 														<span>Детальніше</span>
 													</button>
+												</div>
+												<div data-popup-info="" hidden>
+													<div data-popup-title="">Herbal Jazz</div>
+													<div data-popup-subtitle="">Чай трав'яний «Трав'яний джаз»</div>
+													<div data-popup-descr="">
+														<p>Чай трав’яний «Трав’яний джаз» – ритм природи у вашій чашці.</p>
+														<p>
+															Меліса ніжно заспокоює, м’ята освіжає, лимонник додає бадьорості, шипшина дарує легку фруктову кислинку, а чебрець підкреслює природний смак.
+														</p>
+														<p>Цей чай створений для гармонії та гарного самопочуття кожного дня.</p>
+													</div>
+													<div data-popup-specs="">
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Країна походження інгредієнтів:</span>
+															<span data-popup-specs-descr="">Україна.</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Розфасовка:</span>
+															<span data-popup-specs-descr="">30г (20 пакетиків з ярликом у конвертах (сашетах) по 1,5 г)</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Склад:</span>
+															<span data-popup-specs-descr="">
+																трава меліси 43%, листя м‘яти перцевої 20%, трава лимонника 15%, плоди шипшини подрібнені 12%, чебрецю трава 10%.
+															</span>
+														</div>
+													</div>
 												</div>
 											</div>
 										</li>
 										<li class="slider__item item-slider swiper-slide">
-											<div class="item-slider__item">
+											<div data-info="" class="item-slider__item">
 												<div class="item-slider__body">
 													<a href="#" class="item-slider__pack" aria-label="посилання на магазин">
 														<img loading="lazy" class="ibg-cn" width="214" height="316" alt="чай" src="./assets/img/packs/concentrated-5.webp">
@@ -580,20 +1169,45 @@
 													</div>
 												</div>
 												<div class="item-slider__more">
-													<button data-fls-mainbutton="" type="button" class="item-slider__button btn btn--clr-e" aria-label="відкрити модальне вікно з інформацією про чай">
+													<button data-fls-mainbutton="" data-fls-popup-link="popup-tea" type="button" class="item-slider__button btn btn--clr-e" aria-label="відкрити модальне вікно з інформацією про чай">
 														<span>Детальніше</span>
 													</button>
+												</div>
+												<div data-popup-info="" hidden>
+													<div data-popup-title="">Moon Tango</div>
+													<div data-popup-subtitle="">Чай трав'яний «Танго місяця»</div>
+													<div data-popup-descr="">
+														<p>Чай трав’яний «Танго місяця» – ніжний дует м’яти та ромашки.</p>
+														<p>
+															М’ята дарує свіжість і легкість, ромашка заспокоює та огортає теплом. Разом вони створюють напій, що допомагає розслабитись, зняти напругу та налаштуватись на спокійний сон.
+														</p>
+														<p>Ідеальний вечірній чай для затишку та гармонії.</p>
+													</div>
+													<div data-popup-specs="">
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Країна походження інгредієнтів:</span>
+															<span data-popup-specs-descr="">Україна.</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Розфасовка:</span>
+															<span data-popup-specs-descr="">30г (20 пакетиків з ярликом у конвертах (сашетах) по 1,5 г)</span>
+														</div>
+														<div data-popup-specs-item="">
+															<span data-popup-specs-title="">Склад:</span>
+															<span data-popup-specs-descr="">листя м‘яти перцевої 50%, трава ромашки 50%.</span>
+														</div>
+													</div>
 												</div>
 											</div>
 										</li>
 									</ul>
 									<div class="slider__buttons">
-										<button type="button" class="slider__button swiper-button-prev">
+										<button type="button" class="slider__button swiper-button-prev" aria-label="попередній слайд">
 											<svg width="40" height="40" viewbox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M23 14L17 20L23 26" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 											</svg>
 										</button>
-										<button type="button" class="slider__button swiper-button-next">
+										<button type="button" class="slider__button swiper-button-next" aria-label="наступний слайд">
 											<svg width="40" height="40" viewbox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M17 26L23 20L17 14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 											</svg>
@@ -607,16 +1221,59 @@
 				<section data-fls-fullpage-section="" class="section section-6" style="visibility: hidden;"></section>
 			</main>
 		</div>
-		<div data-fls-popup="popup" aria-hidden="true" class="popup">
+		<div data-fls-popup="popup-tea" aria-hidden="true" class="popup">
 			<div data-fls-popup-wrapper="" class="popup__wrapper">
 				<div data-fls-popup-body="" class="popup__body">
 					<button data-fls-popup-close="" type="button" class="popup__close">
-						<svg width="23" height="23" viewbox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path opacity="0.850056" d="M1.73333 1.48883L21.5469 21.0288" stroke="#979797" stroke-linecap="square"></path>
-							<path opacity="0.850056" d="M21.2667 1.48883L1.45309 21.0288" stroke="#979797" stroke-linecap="square"></path>
+						<svg width="22" height="22" viewbox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M20 2L2 20M20 20L2 2" stroke="#CCCCCC" stroke-width="3" stroke-linecap="round"></path>
 						</svg>
 					</button>
-					<div data-fls-popup-content="" class="popup__text"><!-- Контент --></div>
+					<div data-fls-popup-content="" class="popup__content">
+						<!--
+<div class="popup__picture">
+<img class="ibg-cn" src="@img/packs/herbal-1.png" width="289" height="493" alt="Image">
+</div>
+<div class="popup__description">
+<div class="popup__head">
+<h3 class="popup__title">
+</h3>
+<p class="popup__subtitle">
+</p>
+</div>
+<div class="popup__about">
+</div>
+<div class="popup__specification specification">
+<ul class="specification__list">
+<li class="specification__item">
+<span class="specification__title">
+</span>
+<span class="specification__descr">
+</span>
+</li>
+<li class="specification__item">
+<span class="specification__title">
+</span>
+<span class="specification__descr">
+</span>
+</li>
+<li class="specification__item">
+<span class="specification__title">
+</span>
+<span class="specification__descr">
+</span>
+</li>
+<li class="specification__item">
+<span class="specification__title">
+</span>
+<span class="specification__text">
+</span>
+</li>
+</ul>
+</div>
+</div>
+-->
+					</div>
 				</div>
 			</div>
 		</div>

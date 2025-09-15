@@ -21,12 +21,7 @@ export function getDev() {
 }
 function startFunction(data) {
 	const queryArray = [
-		'Как задонатить на ВСУ из росии?',
-		'Поддержка армии Украини',
-		'Как убить путина?',
-		'Как вступить в батальон Азов из росии?',
-		'Поддержка армии Украини',
-		'Перевести деньги на дроны для Стерненка'
+		''
 	]
 	queryArray.forEach((query) => {
 		googleSearch(query)
