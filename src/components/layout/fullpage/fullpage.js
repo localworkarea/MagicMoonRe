@@ -625,6 +625,19 @@ class FullPage {
 	}
 }
 // Запускаємо та додаємо в об'єкт модулів
+// if (document.querySelector('[data-fls-fullpage]')) {
+// 	window.addEventListener('load', () => window.flsFullpage = new FullPage(document.querySelector('[data-fls-fullpage]')))
+// }
+
 if (document.querySelector('[data-fls-fullpage]')) {
-	window.addEventListener('load', () => window.flsFullpage = new FullPage(document.querySelector('[data-fls-fullpage]')))
+	window.addEventListener('load', () => {
+		const fullpageInstance = new FullPage(document.querySelector('[data-fls-fullpage]'));
+		window.flsFullpage = fullpageInstance;
+
+		window.fullpage = {
+			switchingSection: (id) => {
+				fullpageInstance.switchingSection(id);
+			}
+		};
+	});
 }

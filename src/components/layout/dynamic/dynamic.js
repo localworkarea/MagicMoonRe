@@ -2,151 +2,131 @@ import { FLS } from "@js/common/functions.js";
 
 class DynamicAdapt {
 	constructor() {
-		this.type = "max"
-		this.init()
+		this.daClassname = '--dynamic';
+		this.init();
 	}
-	init() {
-		this.objects = []
-		this.daClassname = '--dynamic'
-		this.nodes = [...document.querySelectorAll('[data-fls-dynamic]')]
 
-		FLS('_FLS_DA_START', this.nodes.length)
+	init() {
+		this.objects = [];
+		this.nodes = [...document.querySelectorAll('[data-fls-dynamic]')];
+
+		FLS('_FLS_DA_START', this.nodes.length);
 
 		this.nodes.forEach((node) => {
-			const data = node.dataset.flsDynamic.trim()
-			const dataArray = data.split(`,`)
-			const object = {}
-			object.element = node
-			object.parent = node.parentNode
-			object.destinationParent = dataArray[3] ? node.closest(dataArray[3].trim()) || document : document
+			const data = node.dataset.flsDynamic.trim();
+			const dataArray = data.split(',');
+			const object = {};
 
+			object.element = node;
+			object.parent = node.parentNode;
 
-			const parentObjectSelector = dataArray[3] ? dataArray[3].trim() : null
-			const objectSelector = dataArray[0] ? dataArray[0].trim() : null
+			const selector = dataArray[0]?.trim();                  // .popup-details__text
+			const breakpoint = dataArray[1]?.trim() || '767.98';   // 992.98
+			const place = dataArray[2]?.trim() || 'last';          // first
+			const type = dataArray[3]?.trim() || 'max';            // min/max
 
-			if (objectSelector) {
-				let errorMessage
-				if (parentObjectSelector) {
-					errorMessage = `${parentObjectSelector} ${objectSelector}`
-				} else {
-					errorMessage = objectSelector
-				}
+			object.breakpoint = breakpoint;
+			object.place = place;
+			object.type = type;
+			object.index = this.indexInParent(object.parent, object.element);
 
-				const foundDestination = object.destinationParent.querySelector(objectSelector)
-				if (foundDestination) {
-					object.destination = foundDestination
-				} else {
-					FLS('_FLS_DA_NONODE', errorMessage)
-				}
+			// Куда вставлять
+			const destination = document.querySelector(selector);
+			if (destination) {
+				object.destination = destination;
 			} else {
-				FLS('_FLS_DA_ADDNODE')
+				FLS('_FLS_DA_NONODE', selector);
 			}
 
-			object.breakpoint = dataArray[1] ? dataArray[1].trim() : `767.98`
-			object.place = dataArray[2] ? dataArray[2].trim() : `last`
-			object.index = this.indexInParent(object.parent, object.element)
-			this.objects.push(object)
-		})
+			this.objects.push(object);
+		});
 
-		this.arraySort(this.objects)
+		this.arraySort(this.objects);
 
-		this.mediaQueries = this.objects
-			.map(({ breakpoint }) => `(${this.type}-width: ${breakpoint / 16}em),${breakpoint}`)
-			.filter((item, index, self) => self.indexOf(item) === index)
+		// Создаём media-запросы отдельно по каждому типу
+		const mediaGroups = {};
 
-		this.mediaQueries.forEach((media) => {
-			const mediaSplit = media.split(',')
-			const matchMedia = window.matchMedia(mediaSplit[0])
-			const mediaBreakpoint = mediaSplit[1]
+		this.objects.forEach((obj) => {
+			const mediaKey = `(${obj.type}-width: ${obj.breakpoint / 16}em),${obj.breakpoint},${obj.type}`;
+			if (!mediaGroups[mediaKey]) {
+				mediaGroups[mediaKey] = [];
+			}
+			mediaGroups[mediaKey].push(obj);
+		});
 
-			const objectsFilter = this.objects.filter(({ breakpoint }) => breakpoint === mediaBreakpoint)
+		Object.entries(mediaGroups).forEach(([media, objects]) => {
+			const [mediaQuery, breakpoint, type] = media.split(',');
+			const matchMedia = window.matchMedia(mediaQuery);
 			matchMedia.addEventListener('change', () => {
-				this.mediaHandler(matchMedia, objectsFilter)
-			})
-			this.mediaHandler(matchMedia, objectsFilter)
-		})
+				this.mediaHandler(matchMedia, objects);
+			});
+			this.mediaHandler(matchMedia, objects);
+		});
 	}
+
 	mediaHandler(matchMedia, objects) {
 		if (matchMedia.matches) {
 			objects.forEach((object) => {
 				if (object.destination) {
-					this.moveTo(object.place, object.element, object.destination)
+					this.moveTo(object.place, object.element, object.destination);
 				}
-			})
+			});
 		} else {
 			objects.forEach(({ parent, element, index }) => {
 				if (element.classList.contains(this.daClassname)) {
-					this.moveBack(parent, element, index)
+					this.moveBack(parent, element, index);
 				}
-			})
+			});
 		}
 	}
+
 	moveTo(place, element, destination) {
+		FLS('_FLS_DA_MOVETO', [element.classList[0], destination.classList[0]]);
+		element.classList.add(this.daClassname);
 
-		FLS('_FLS_DA_MOVETO', [element.classList[0], destination.classList[0]])
-
-		element.classList.add(this.daClassname)
-
-		const index = place === 'last' || place === 'first' ? place : parseInt(place, 10)
-
+		const index = place === 'last' || place === 'first' ? place : parseInt(place, 10);
 		if (index === 'last' || index >= destination.children.length) {
-			destination.append(element)
+			destination.append(element);
 		} else if (index === 'first') {
-			destination.prepend(element)
+			destination.prepend(element);
 		} else {
-			destination.children[index].before(element)
+			destination.children[index].before(element);
 		}
 	}
-	moveBack(parent, element, index) {
-		element.classList.remove(this.daClassname)
-		if (parent.children[index] !== undefined) {
-			parent.children[index].before(element)
-		} else {
-			parent.append(element)
-		}
 
-		FLS('_FLS_DA_MOVEBACK', [element.classList[0], parent.classList[0]])
-	}
-	indexInParent(parent, element) {
-		return [...parent.children].indexOf(element)
-	}
-	arraySort(arr) {
-		if (this.type === 'min') {
-			arr.sort((a, b) => {
-				if (a.breakpoint === b.breakpoint) {
-					if (a.place === b.place) {
-						return 0
-					}
-					if (a.place === 'first' || b.place === 'last') {
-						return -1
-					}
-					if (a.place === 'last' || b.place === 'first') {
-						return 1
-					}
-					return 0
-				}
-				return a.breakpoint - b.breakpoint
-			})
+	moveBack(parent, element, index) {
+		element.classList.remove(this.daClassname);
+		if (parent.children[index] !== undefined) {
+			parent.children[index].before(element);
 		} else {
-			arr.sort((a, b) => {
-				if (a.breakpoint === b.breakpoint) {
-					if (a.place === b.place) {
-						return 0
-					}
-					if (a.place === 'first' || b.place === 'last') {
-						return 1
-					}
-					if (a.place === 'last' || b.place === 'first') {
-						return -1
-					}
-					return 0
-				}
-				return b.breakpoint - a.breakpoint
-			})
-			return
+			parent.append(element);
 		}
+		FLS('_FLS_DA_MOVEBACK', [element.classList[0], parent.classList[0]]);
+	}
+
+	indexInParent(parent, element) {
+		return [...parent.children].indexOf(element);
+	}
+
+	arraySort(arr) {
+		arr.sort((a, b) => {
+			if (a.breakpoint === b.breakpoint) {
+				if (a.place === b.place) {
+					return 0;
+				}
+				if (a.place === 'first' || b.place === 'last') {
+					return -1;
+				}
+				if (a.place === 'last' || b.place === 'first') {
+					return 1;
+				}
+				return 0;
+			}
+			return a.breakpoint - b.breakpoint;
+		});
 	}
 }
+
 if (document.querySelector('[data-fls-dynamic]')) {
-	window.addEventListener('load', () => new DynamicAdapt())
+	window.addEventListener('load', () => new DynamicAdapt());
 }

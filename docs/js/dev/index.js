@@ -1,4 +1,4 @@
-import { i as isMobile } from "./app.min.js";
+import { b as bodyLockStatus, a as bodyLockToggle, i as isMobile, c as bodyUnlock, g as gotoBlock, d as getHash } from "./app.min.js";
 function isObject$1(obj) {
   return obj !== null && typeof obj === "object" && "constructor" in obj && obj.constructor === Object;
 }
@@ -4406,6 +4406,15 @@ if (document.querySelector("[data-fls-slider]")) {
     initSliders();
   });
 }
+function menuInit() {
+  document.addEventListener("click", function(e) {
+    if (bodyLockStatus && e.target.closest("[data-fls-menu]")) {
+      bodyLockToggle();
+      document.documentElement.toggleAttribute("data-fls-menu-open");
+    }
+  });
+}
+document.querySelector("[data-fls-menu]") ? window.addEventListener("load", menuInit) : null;
 class FullPage {
   constructor(element, options) {
     let config = {
@@ -4907,5 +4916,180 @@ class FullPage {
   }
 }
 if (document.querySelector("[data-fls-fullpage]")) {
-  window.addEventListener("load", () => window.flsFullpage = new FullPage(document.querySelector("[data-fls-fullpage]")));
+  window.addEventListener("load", () => {
+    const fullpageInstance = new FullPage(document.querySelector("[data-fls-fullpage]"));
+    window.flsFullpage = fullpageInstance;
+    window.fullpage = {
+      switchingSection: (id) => {
+        fullpageInstance.switchingSection(id);
+      }
+    };
+  });
 }
+class DynamicAdapt {
+  constructor() {
+    this.daClassname = "--dynamic";
+    this.init();
+  }
+  init() {
+    this.objects = [];
+    this.nodes = [...document.querySelectorAll("[data-fls-dynamic]")];
+    this.nodes.forEach((node) => {
+      const data = node.dataset.flsDynamic.trim();
+      const dataArray = data.split(",");
+      const object = {};
+      object.element = node;
+      object.parent = node.parentNode;
+      const selector = dataArray[0]?.trim();
+      const breakpoint = dataArray[1]?.trim() || "767.98";
+      const place = dataArray[2]?.trim() || "last";
+      const type = dataArray[3]?.trim() || "max";
+      object.breakpoint = breakpoint;
+      object.place = place;
+      object.type = type;
+      object.index = this.indexInParent(object.parent, object.element);
+      const destination = document.querySelector(selector);
+      if (destination) {
+        object.destination = destination;
+      }
+      this.objects.push(object);
+    });
+    this.arraySort(this.objects);
+    const mediaGroups = {};
+    this.objects.forEach((obj) => {
+      const mediaKey = `(${obj.type}-width: ${obj.breakpoint / 16}em),${obj.breakpoint},${obj.type}`;
+      if (!mediaGroups[mediaKey]) {
+        mediaGroups[mediaKey] = [];
+      }
+      mediaGroups[mediaKey].push(obj);
+    });
+    Object.entries(mediaGroups).forEach(([media, objects]) => {
+      const [mediaQuery, breakpoint, type] = media.split(",");
+      const matchMedia = window.matchMedia(mediaQuery);
+      matchMedia.addEventListener("change", () => {
+        this.mediaHandler(matchMedia, objects);
+      });
+      this.mediaHandler(matchMedia, objects);
+    });
+  }
+  mediaHandler(matchMedia, objects) {
+    if (matchMedia.matches) {
+      objects.forEach((object) => {
+        if (object.destination) {
+          this.moveTo(object.place, object.element, object.destination);
+        }
+      });
+    } else {
+      objects.forEach(({ parent, element, index }) => {
+        if (element.classList.contains(this.daClassname)) {
+          this.moveBack(parent, element, index);
+        }
+      });
+    }
+  }
+  moveTo(place, element, destination) {
+    element.classList.add(this.daClassname);
+    const index = place === "last" || place === "first" ? place : parseInt(place, 10);
+    if (index === "last" || index >= destination.children.length) {
+      destination.append(element);
+    } else if (index === "first") {
+      destination.prepend(element);
+    } else {
+      destination.children[index].before(element);
+    }
+  }
+  moveBack(parent, element, index) {
+    element.classList.remove(this.daClassname);
+    if (parent.children[index] !== void 0) {
+      parent.children[index].before(element);
+    } else {
+      parent.append(element);
+    }
+  }
+  indexInParent(parent, element) {
+    return [...parent.children].indexOf(element);
+  }
+  arraySort(arr) {
+    arr.sort((a, b) => {
+      if (a.breakpoint === b.breakpoint) {
+        if (a.place === b.place) {
+          return 0;
+        }
+        if (a.place === "first" || b.place === "last") {
+          return -1;
+        }
+        if (a.place === "last" || b.place === "first") {
+          return 1;
+        }
+        return 0;
+      }
+      return a.breakpoint - b.breakpoint;
+    });
+  }
+}
+if (document.querySelector("[data-fls-dynamic]")) {
+  window.addEventListener("load", () => new DynamicAdapt());
+}
+function pageNavigation() {
+  document.addEventListener("click", pageNavigationAction);
+  document.addEventListener("watcherCallback", pageNavigationAction);
+  function pageNavigationAction(e) {
+    if (e.type === "click") {
+      const targetElement = e.target;
+      if (targetElement.closest("[data-fls-scrollto]")) {
+        const gotoLink = targetElement.closest("[data-fls-scrollto]");
+        const gotoLinkSelector = gotoLink.dataset.flsScrollto ? gotoLink.dataset.flsScrollto : "";
+        const noHeader = gotoLink.hasAttribute("data-fls-scrollto-header") ? true : false;
+        const gotoSpeed = gotoLink.dataset.flsScrolltoSpeed ? gotoLink.dataset.flsScrolltoSpeed : 500;
+        const offsetTop = gotoLink.dataset.flsScrolltoTop ? parseInt(gotoLink.dataset.flsScrolltoTop) : 0;
+        if (window.fullpage) {
+          const fullpageSection = document.querySelector(`${gotoLinkSelector}`).closest("[data-fls-fullpage-section]");
+          const fullpageSectionId = fullpageSection ? +fullpageSection.dataset.flsFullpageId : null;
+          if (fullpageSectionId !== null) {
+            window.fullpage.switchingSection(fullpageSectionId);
+            if (document.documentElement.hasAttribute("data-fls-menu-open")) {
+              bodyUnlock();
+              document.documentElement.removeAttribute("data-fls-menu-open");
+            }
+          }
+        } else {
+          gotoBlock(gotoLinkSelector, noHeader, gotoSpeed, offsetTop);
+        }
+        e.preventDefault();
+      }
+    } else if (e.type === "watcherCallback" && e.detail) {
+      const entry = e.detail.entry;
+      const targetElement = entry.target;
+      if (targetElement.dataset.flsWatcher === "navigator") {
+        document.querySelector(`[data-fls-scrollto].--navigator-active`);
+        let navigatorCurrentItem;
+        if (targetElement.id && document.querySelector(`[data-fls-scrollto="#${targetElement.id}"]`)) {
+          navigatorCurrentItem = document.querySelector(`[data-fls-scrollto="#${targetElement.id}"]`);
+        } else if (targetElement.classList.length) {
+          for (let index = 0; index < targetElement.classList.length; index++) {
+            const element = targetElement.classList[index];
+            if (document.querySelector(`[data-fls-scrollto=".${element}"]`)) {
+              navigatorCurrentItem = document.querySelector(`[data-fls-scrollto=".${element}"]`);
+              break;
+            }
+          }
+        }
+        if (entry.isIntersecting) {
+          navigatorCurrentItem ? navigatorCurrentItem.classList.add("--navigator-active") : null;
+        } else {
+          navigatorCurrentItem ? navigatorCurrentItem.classList.remove("--navigator-active") : null;
+        }
+      }
+    }
+  }
+  if (getHash()) {
+    let goToHash;
+    if (document.querySelector(`#${getHash()}`)) {
+      goToHash = `#${getHash()}`;
+    } else if (document.querySelector(`.${getHash()}`)) {
+      goToHash = `.${getHash()}`;
+    }
+    goToHash ? gotoBlock(goToHash) : null;
+  }
+}
+document.querySelector("[data-fls-scrollto]") ? window.addEventListener("load", pageNavigation) : null;
