@@ -77,4 +77,13 @@
       }
     }
   }
+  &.btn--clr-j {
+    background-color: var(--violet-light-2);
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: var(--violet-light-2-hover);
+      }
+    }
+  }
 }

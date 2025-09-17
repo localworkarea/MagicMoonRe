@@ -1,0 +1,202 @@
+%title {
+  @include adaptiveValue("font-size", 50, 32);
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+}
+
+
+.section-6 {
+		// .section-6__container
+		&__container {
+		}
+
+		// .section-6__body
+		&__body {
+      color: var(--white);
+      line-height: 1.2;
+      max-width: 1050px;
+      margin-inline: auto;
+      @include adaptiveValue("padding-top", 150, 110);
+      @include adaptiveValue("padding-bottom", 80, 70);
+		}
+
+		// .section-6__title
+		&__title {
+      @extend %title;
+      @include adaptiveValue("margin-bottom", 50, 40);
+		}
+    
+		// .section-6__cards
+		&__cards {
+      display: grid;
+      gap: 30px;
+      @include adaptiveValue("margin-bottom", 80, 70);
+      @media (min-width:toEm(750.98)){
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+		// .section-6__card
+		&__card {
+      border-radius: 30px;
+      padding: 26px 30px;
+      border: 3px solid transparent;
+      @media (min-width:toEm($mobileSmall)){
+         padding: 34px 40px; 
+      }
+      &:nth-child(1) {
+        border-color: rgba(149,161,214,0.4);
+        box-shadow: 0 10px 20px 0 rgba(87, 106, 191, 0.6);
+        background: linear-gradient(135deg, #576abf 0%, #4b5eb0 100%);
+      }
+      &:nth-child(2) {
+        border-color: rgba(219,158,181,0.4);
+        box-shadow: 0 10px 20px 0 rgba(200, 101, 139, 0.6);
+        background: linear-gradient(135deg, #c8658b 0%, #b3567a 100%);
+      }
+    }
+    
+		// .section-6__card-title
+		&__card-title {
+      margin-bottom: 20px;
+      @include adaptiveValue("font-size", 34, 26);
+      font-weight: 600;
+		}
+    
+		// .section-6__card-txt
+		&__card-txt {
+      @include adaptiveValue("font-size", 24, 16);
+      font-weight: 500;
+    }
+    
+		// .section-6__subtitle
+		&__subtitle {
+      @extend %title;
+      @include adaptiveValue("margin-bottom", 50, 20);
+		}
+
+		// .section-6__list
+		&__list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+      @include adaptiveValue("gap", 50, 30);
+      max-width: 850px;
+      margin-inline: auto;
+    }
+    
+		// .section-6__item
+		&__item {
+      display: flex;
+      gap: 10px;
+
+      font-weight: 600;
+      font-size: 20px;
+      &::before {
+        content:'';
+        flex: 0 0 auto;
+        @include adaptiveValue("width", 19, 16);
+        @include adaptiveValue("height", 19, 16);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background-color: #FFD659;
+        margin-top: 3px;
+      }
+		}
+
+		// .section-6__footer
+		&__footer {
+		}
+}
+
+.footer-section-6 {
+  position: relative;
+  @include adaptiveValue("margin-top", 80, 70);
+  @include adaptiveValue("padding-top", 80, 70);
+
+
+  &::before {
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.3) 15.87%, #fff 50%, rgba(255, 255, 255, 0.3) 100%);
+  }
+		// .footer-section-6__body
+		&__body {
+      max-width: 850px;
+      margin-inline: auto;
+
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 50px;
+		}
+		// .footer-section-6__social
+		&__social {
+      .footer-section-6__title {
+        margin-bottom: 14px;
+      }
+		}
+
+		// .footer-section-6__title
+		&__title {
+      font-weight: 600;
+      font-size: 20px;
+		}
+
+		// .footer-section-6__list
+		&__list {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+		}
+
+		// .footer-section-6__item
+		&__item {
+		}
+
+		// .footer-section-6__link
+		&__link {
+      svg {
+        .hover {
+          transition: fill .3s ease;
+        }
+      }
+      @media (any-hover: hover){
+        &:hover{
+          .hover {
+            fill: #c8658b;
+          }
+        }
+      }
+		}
+
+		// .footer-section-6__contacts
+		&__contacts {
+       .footer-section-6__title {
+        margin-bottom: 19px;
+      }
+		}
+
+		// .footer-section-6__address
+		&__address {
+		}
+
+		// .footer-section-6__phone
+		&__phone {
+      font-weight: 600;
+      font-size: 8vw;
+      transition: color .3s ease;
+      @media (any-hover: hover){
+        &:hover{
+          color: #c8658b;
+        }
+      }
+      @media (min-width: toEm(380.98)){
+        font-size: 34px;
+      }
+		}
+}

@@ -1,8 +1,372 @@
 <script type="module" src="@components/pages/promo/promo.js"></script>
 <link rel="stylesheet" href="@components/pages/promo/promo.scss">
 
-<main class="page page--promo">
-	<div class="page__container">
-
+<main data-fls-fullpage class="page page--promo">
+	<div class="bg-main">
+		<picture>
+			<source srcset="@img/bg/main-bg-pc.png" media="(min-width: 30.062em)" type="image/webp">
+			<source srcset="@img/bg/main-bg-mb.png" type="image/webp">
+			<img class="ibg-cv" fetchpriority="high" src="@img/bg/main-bg-pc.png" width="1920" height="900" alt="розмитий фон">
+		</picture>
 	</div>
+	<section id="hero" data-fls-fullpage-section class="section section-promo">
+		<div class="section-promo__content">
+			<div class="section-promo__container">
+				<div data-fls-sliders class="section-promo__slider slider">
+					<div class="slider__head">
+						<h1 class="slider__title-promo">Акція «Гроші в пачці»</h1>
+						<button type="button" data-fls-mainbutton data-fls-popup-link="popup-info" class="slider__more-promo btn btn--clr-j" aria-label="відкрити модальне вікно">
+							<span>Інформація про акцію</span>
+						</button>
+					</div>
+					<div data-fls-slider data-slider="tea-promo" class="slider__slider swiper">
+						<ul class="slider__wrapper swiper-wrapper">
+							<li class="slider__item item-slider swiper-slide">
+								<div data-info class="item-slider__item">
+									<div class="item-slider__body">
+										<a href="#" class="item-slider__pack" aria-label="посилання на магазин">
+											<img fetchpriority="high" class="ibg-cn" src="@img/packs/promo-1.png" width="214" height="316" alt="чай">
+										</a>
+										<div data-fls-circlebtn class="item-slider__circle-btn circle-btn circle-btn--sm">
+											<a href="#" class="circle-btn__link" aria-label="посилання на магазин">
+												<div class="circle-btn__body">
+													<img fetchpriority="high" class="ibg-cn" src="@img/mini-packs/promo-1.png" width="59" height="100" alt="Image">
+												</div>
+											</a>
+										</div>
+									</div>
+									<div class="item-slider__more">
+										<button data-fls-mainbutton data-fls-popup-link="popup-tea" type="button" class="item-slider__button btn btn--clr-f" aria-label="відкрити модальне вікно з інформацією про чай">
+											<span>Детальніше</span>
+										</button>
+									</div>
+									<div data-popup-info hidden>
+										<div data-popup-title>Golden Champagne</div>
+										<div data-popup-subtitle>Суміш чорного та зеленого чаю з пелюстками волошки та ароматом полуниці «Золоте шампанське» </div>
+										<div data-popup-descr>
+											<p>
+												Суміш чорного та зеленого чаю «Золоте шампанське» - цей чай створений, щоб перетворювати звичайні дні на маленькі свята.
+											</p>
+											<p>
+												Поєднання насиченого чорного та ніжного зеленого чаю збагачене яскравим ароматом стиглої полуниці та легкими нотками «бризків шампанського». Пелюстки волошки надають напою святкової вишуканості.
+											</p>
+											<p>
+												Ідеальний для піднесеного настрою та приємних зустрічей.
+											</p>
+										</div>
+										<div data-popup-specs>
+											<div data-popup-specs-item>
+												<span data-popup-specs-title>Країна походження чайного листа: </span>
+												<span data-popup-specs-descr>Шрі-Ланка (острів Цейлон), Китай.</span>
+											</div>
+											<div data-popup-specs-item>
+												<span data-popup-specs-title>Країна походження інших складових продукту: </span>
+												<span data-popup-specs-descr>Україна.</span>
+											</div>
+											<div data-popup-specs-item>
+												<span data-popup-specs-title>Розфасовка: </span>
+												<span data-popup-specs-descr>40г (20 пакетиків з ярликом у конвертах (сашетах) по 2 г)</span>
+											</div>
+											<div data-popup-specs-item>
+												<span data-popup-specs-title>Склад</span>
+												<span data-popup-specs-descr>мед, сметана, борошно</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="slider__item item-slider swiper-slide">
+								<div data-info class="item-slider__item">
+									<div class="item-slider__body">
+										<a href="#" class="item-slider__pack" aria-label="посилання на магазин">
+											<img fetchpriority="high" class="ibg-cn" src="@img/packs/promo-2.png" width="214" height="316" alt="чай">
+										</a>
+										<div data-fls-circlebtn class="item-slider__circle-btn circle-btn circle-btn--sm">
+											<a href="#" class="circle-btn__link" aria-label="посилання на магазин">
+												<div class="circle-btn__body">
+													<img fetchpriority="high" class="ibg-cn" src="@img/mini-packs/promo-2.png" width="59" height="100" alt="Image">
+												</div>
+											</a>
+										</div>
+									</div>
+									<div class="item-slider__more">
+										<button data-fls-mainbutton data-fls-popup-link="popup-tea" type="button" class="item-slider__button btn btn--clr-f" aria-label="відкрити модальне вікно з інформацією про чай">
+											<span>Детальніше</span>
+										</button>
+									</div>
+									<div data-popup-info hidden>
+										<div data-popup-title>Strawberry Cocktail</div>
+										<div data-popup-subtitle>Чай зелений з м’ятою та ароматом полуниці і лимону «Полуничний коктейль»</div>
+										<div data-popup-descr>
+											<p>
+												Зелений чай «Полуничний коктейль» – свіжа й яскрава насолода.
+											</p>
+											<p>
+												Ароматна полуниця поєднується з ніжним зеленим чаєм та освіжаючою м’ятою. Легкий, фруктово-ягідний смак створює настрій літа у будь-яку пору року.
+											</p>
+											<p>
+												Ідеальний вибір для бадьорості й гарного настрою.
+											</p>
+										</div>
+										<div data-popup-specs>
+											<div data-popup-specs-item>
+												<span data-popup-specs-title>Країна походження чайного листа: </span>
+												<span data-popup-specs-descr>Китай</span>
+											</div>
+											<div data-popup-specs-item>
+												<span data-popup-specs-title>Країна походження інших складових продукту: </span>
+												<span data-popup-specs-descr>Україна.</span>
+											</div>
+											<div data-popup-specs-item>
+												<span data-popup-specs-title>Розфасовка: </span>
+												<span data-popup-specs-descr>40г (20 пакетиків з ярликом у конвертах (сашетах) по 2 г)</span>
+											</div>
+											<div data-popup-specs-item>
+												<span data-popup-specs-title>Склад: </span>
+												<span data-popup-specs-descr>чай зелений китайський 82%, листя м’яти перцевої 8%, цедра апельсину, каркаде подрібнене, ароматизатор «Полуниця», ароматизатор «Лимон».</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="slider__item item-slider swiper-slide">
+								<div data-info class="item-slider__item">
+									<div class="item-slider__body">
+										<a href="#" class="item-slider__pack" aria-label="посилання на магазин">
+											<img fetchpriority="high" class="ibg-cn" src="@img/packs/promo-3.png" width="214" height="316" alt="чай">
+										</a>
+										<div data-fls-circlebtn class="item-slider__circle-btn circle-btn circle-btn--sm">
+											<a href="#" class="circle-btn__link" aria-label="посилання на магазин">
+												<div class="circle-btn__body">
+													<img fetchpriority="high" class="ibg-cn" src="@img/mini-packs/promo-3.png" width="59" height="100" alt="Image">
+												</div>
+											</a>
+										</div>
+									</div>
+									<div class="item-slider__more">
+										<button data-fls-mainbutton data-fls-popup-link="popup-tea" type="button" class="item-slider__button btn btn--clr-f" aria-label="відкрити модальне вікно з інформацією про чай">
+											<span>Детальніше</span>
+										</button>
+									</div>
+									<div data-popup-info hidden>
+										<div data-popup-title>Chamomile Provence</div>
+										<div data-popup-subtitle>Чай трав'яний «Ромашковий прованс»</div>
+										<div data-popup-descr>
+											<p>
+												Чай трав’яний «Ромашковий Прованс» – гармонія ніжності та спокою.
+											</p>
+											<p>
+												Ромашка дбайливо заспокоює, допомагає зняти втому та наповнює тіло легкістю. Лаванда додає тонку квіткову ноту та витонченість французького Провансу.
+											</p>
+											<p>
+												Цей напій стане вашим вечірнім ритуалом релаксу, даруючи м’яке відчуття затишку й умиротворення.
+											</p>
+										</div>
+										<div data-popup-specs>
+											<div data-popup-specs-item>
+												<span data-popup-specs-title>Країна походження інгредієнтів: </span>
+												<span data-popup-specs-descr>Україна.</span>
+											</div>
+											<div data-popup-specs-item>
+												<span data-popup-specs-title>Розфасовка: </span>
+												<span data-popup-specs-descr>30г (20 пакетиків з ярликом у конвертах (сашетах) по 1,5 г)</span>
+											</div>
+											<div data-popup-specs-item>
+												<span data-popup-specs-title>Склад: </span>
+												<span data-popup-specs-descr>трава ромашки 90%, трава лаванди 10%.</span>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</li>
+							<li class="slider__item item-slider swiper-slide">
+								<div data-info class="item-slider__item">
+									<div class="item-slider__body">
+										<a href="#" class="item-slider__pack" aria-label="посилання на магазин">
+											<img fetchpriority="high" class="ibg-cn" src="@img/packs/promo-4.png" width="214" height="316" alt="чай">
+										</a>
+										<div data-fls-circlebtn class="item-slider__circle-btn circle-btn circle-btn--sm">
+											<a href="#" class="circle-btn__link" aria-label="посилання на магазин">
+												<div class="circle-btn__body">
+													<img fetchpriority="high" class="ibg-cn" src="@img/mini-packs/promo-4.png" width="59" height="100" alt="Image">
+												</div>
+											</a>
+										</div>
+									</div>
+									<div class="item-slider__more">
+										<button data-fls-mainbutton data-fls-popup-link="popup-tea" type="button" class="item-slider__button btn btn--clr-f" aria-label="відкрити модальне вікно з інформацією про чай">
+											<span>Детальніше</span>
+										</button>
+									</div>
+									<div data-popup-info hidden>
+										<div data-popup-title>Chamomile Provence</div>
+										<div data-popup-subtitle>Чай трав'яний «Ромашковий прованс»</div>
+										<div data-popup-descr>
+											<p>
+												Чай трав’яний «Ромашковий Прованс» – гармонія ніжності та спокою.
+											</p>
+											<p>
+												Ромашка дбайливо заспокоює, допомагає зняти втому та наповнює тіло легкістю. Лаванда додає тонку квіткову ноту та витонченість французького Провансу.
+											</p>
+											<p>
+												Цей напій стане вашим вечірнім ритуалом релаксу, даруючи м’яке відчуття затишку й умиротворення.
+											</p>
+										</div>
+										<div data-popup-specs>
+											<div data-popup-specs-item>
+												<span data-popup-specs-title>Країна походження інгредієнтів: </span>
+												<span data-popup-specs-descr>Україна.</span>
+											</div>
+											<div data-popup-specs-item>
+												<span data-popup-specs-title>Розфасовка: </span>
+												<span data-popup-specs-descr>30г (20 пакетиків з ярликом у конвертах (сашетах) по 1,5 г)</span>
+											</div>
+											<div data-popup-specs-item>
+												<span data-popup-specs-title>Склад: </span>
+												<span data-popup-specs-descr>трава ромашки 90%, трава лаванди 10%.</span>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</li>
+						</ul>
+						<div class="slider__buttons">
+							<button type="button" class="slider__button swiper-button-prev" aria-label="попередній слайд">
+								<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M23 14L17 20L23 26" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+								</svg>
+							</button>
+							<button type="button" class="slider__button swiper-button-next" aria-label="наступний слайд">
+								<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M17 26L23 20L17 14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+								</svg>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="money">
+				<div class="money__picture">
+					<picture>
+						<source srcset="@img/elements/money-pc.png" media="(min-width: 51.311em)" type="image/webp">
+						<source srcset="@img/elements/money-mb.png" type="image/webp">
+						<img class="ibg-cn" fetchpriority="high" src="@img/elements/money-pc.png" width="1920" height="900" alt="розмитий фон">
+					</picture>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="contacts" data-fls-footersection data-fls-fullpage-section class="section section-6" style="visibility: hidden;">
+		<div class="section-6__container">
+			<div class="section-6__body">
+				<h2 class="section-6__title">
+					Ласкаво просимо до "Magic Moon" – світу магії в кожному ковтку чаю
+				</h2>
+				<ul class="section-6__cards">
+					<li class="section-6__card">
+						<div class="section-6__card-title">
+							<p>
+								Наша місія
+							</p>
+						</div>
+						<div class="section-6__card-txt">
+							<p>
+								Створення неперевершених смакових вражень, де смак, аромат і магія об'єднуються в гармонійному танці
+							</p>
+						</div>
+					</li>
+					<li class="section-6__card">
+						<div class="section-6__card-title">
+							<p>
+								Наші цінності
+							</p>
+						</div>
+						<div class="section-6__card-txt">
+							<p>
+								Дбайливе відношення до кожної складової чаю. Використання тільки найкращих натуральних інгредієнтів для найвищого задоволення наших клієнтів
+							</p>
+						</div>
+					</li>
+				</ul>
+				<div class="section-6__subtitle">
+					<p>
+						Сьогодні "Magic Moon" – це:
+					</p>
+				</div>
+				<ul class="section-6__list">
+					<li class="section-6__item">
+						<p>
+							Запрошення в незабутню подорож у світ смакових відкриттів
+						</p>
+					</li>
+					<li class="section-6__item">
+						<p>
+							Відбірна сировина від сертифікованих фермерів Rainforest Alliance
+						</p>
+					</li>
+					<li class="section-6__item">
+						<p>
+							Виробництво на сучасній фабриці за стандартами ЄС
+						</p>
+					</li>
+					<li class="section-6__item">
+						<p>
+							Унікальні купажі, що поєднують смаки з усього світу
+						</p>
+					</li>
+					<li class="section-6__item">
+						<p>
+							Суворий контроль якості на кожному етапі виробництва
+						</p>
+					</li>
+				</ul>
+				<div class="section-6__footer footer-section-6">
+					<div class="footer-section-6__body">
+						<div class="footer-section-6__social">
+							<p class="footer-section-6__title">Соцмережі:</p>
+							<ul class="footer-section-6__list">
+								<li class="footer-section-6__item">
+									<a href="#" class="footer-section-6__link" aria-label="посилання на соціальні мережі">
+										<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<circle cx="25" cy="25" r="25" fill="white" />
+											<rect class="hover" x="12" y="12" width="26" height="26" rx="8" fill="black" />
+											<circle cx="25" cy="25.0003" r="4.79032" stroke="white" stroke-width="3" />
+											<circle cx="32.129" cy="17.0319" r="1.5" fill="white" stroke="white" stroke-width="0.354839" />
+										</svg>
+									</a>
+								</li>
+								<li class="footer-section-6__item">
+									<a href="#" class="footer-section-6__link" aria-label="посилання на соціальні мережі">
+										<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M25 50C11.1786 50 0 38.8214 0 25C0 11.1786 11.1786 0 25 0C38.8214 0 50 11.1786 50 25C50 38.7857 38.7857 50 25 50Z" fill="white" />
+											<path class="hover"
+												d="M24.8712 16.001C24.9447 16.001 33.4573 16.0032 35.5861 16.5742C36.7667 16.8903 37.6948 17.8183 38.0109 18.999C38.5796 21.1279 38.5841 25.5627 38.5841 25.6006C38.5841 25.6006 38.5843 30.0639 38.0109 32.2021C37.6949 33.3829 36.7667 34.3109 35.5861 34.627C33.4573 35.198 24.9447 35.2012 24.8712 35.2012C24.8712 35.2012 16.2935 35.2004 14.1554 34.627C12.9747 34.3109 12.0467 33.3828 11.7306 32.2021C11.1572 30.0639 11.1573 25.6006 11.1573 25.6006C11.1574 25.5627 11.1596 21.1279 11.7306 18.999C12.0467 17.8183 12.9747 16.8903 14.1554 16.5742C16.2935 16.0008 24.8712 16.001 24.8712 16.001ZM22.1251 29.7148L29.2511 25.6006L22.1251 21.4873V29.7148Z"
+												fill="black" />
+										</svg>
+									</a>
+								</li>
+								<li class="footer-section-6__item">
+									<a href="#" class="footer-section-6__link" aria-label="посилання на соціальні мережі">
+										<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M25 50C11.1786 50 0 38.8214 0 25C0 11.1786 11.1786 0 25 0C38.8214 0 50 11.1786 50 25C50 38.7857 38.7857 50 25 50Z" fill="white" />
+											<path class="hover" d="M28 27.825H31.5714L33 21.625H28V18.525C28 16.9285 28 15.425 30.8571 15.425H33V10.217C32.5343 10.1504 30.7757 10 28.9186 10C25.04 10 22.2857 12.5683 22.2857 17.285V21.625H18V27.825H22.2857V41H28V27.825Z"
+												fill="black" />
+										</svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="footer-section-6__contacts">
+							<p class="footer-section-6__title">Телефон гарячої лініі:</p>
+							<address class="footer-section-6__address">
+								<a href="tel:+380674027635" class="footer-section-6__phone" aria-label="телефон гарячої лінії">+38 (067) 402 76 35 </a>
+							</address>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 </main>
