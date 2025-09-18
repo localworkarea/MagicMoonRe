@@ -80,7 +80,7 @@ export default {
 			// Збирає в один JS та один CSS файли
 			// незалежно від налаштування
 			// styles -> codesplit,
-			enable: false,
+			enable: true,
 		},
 		react: false,
 		vue: false
