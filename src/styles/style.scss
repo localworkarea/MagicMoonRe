@@ -217,9 +217,6 @@ body {
 	
 }
 .page--conditions {
-	 &::-webkit-scrollbar {
-    display: none;
-  }
 	.bg-main {
 		&::before {
 			background-color: var(--teal);
@@ -228,6 +225,13 @@ body {
 	
 }
 
+.conditions-page {
+	body {
+		&::-webkit-scrollbar {
+		 display: none;
+		}
+	}
+}
 
 // .page {
 // 	transition: all .8s ease;

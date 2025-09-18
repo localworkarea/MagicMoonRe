@@ -1,6 +1,7 @@
 <template src="@components/templates/main/main.html" locals='{
-		"title":"MAGICMOON | ГОЛОВНА", 
+		"title":"MAGICMOON | УМОВИ АКЦІЇ", 
 		"lang":"uk",
+		"pageClass":"conditions-page",
 		"preloader": {
 			"enable":"false",
 			"once":"false"
@@ -8,10 +9,13 @@
 		"keywords":"", 
 		"description":""
 	}'>
+
 	<block name="header">
 		<include src="@components/layout/header/header-conditions.html" locals='{"active":"Home"}'></include>
 	</block>
 	<block name="main">
 		<include src="@components/pages/conditions/conditions.html" locals='{}'></include>
+	</block>
+	<block name="popup">
 	</block>
 </template>
