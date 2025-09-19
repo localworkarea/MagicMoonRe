@@ -222,9 +222,9 @@
     display: block;
     margin-inline: auto;
     transition: transform .5s ease;
-
+    aspect-ratio: 214 / 364;
     img {
-      aspect-ratio: 214/364
+      aspect-ratio: 214/364;
     }
 
     .swiper-slide-active & {
